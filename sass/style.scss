@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.welcome{
+    background-color: #000;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    .text{
+        padding: 10px;
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%);
+        p{
+            color: lime;
+            font-family: "Courier", sans-serif;
+            font-size: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 30em;
+            animation: type 3s steps(60, end);
+        }
+        p:nth-of-type(2){
+            animation: type2 6s steps(60, end);
+            
+            .rect{
+            color: lime;
+            background-color: lime;
+            font-size: 20px;
+            
+            width: 5px;
+            animation: blink 1s infinite;
+            }
+        }
+        
+    }
+    .arrow{
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 2px solid lime;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        opacity: 0;
+        animation: show 1s both;
+        animation-delay: 4s;
+        i{
+            width: 100%;
+            font-size: 40px;
+            color: lime;
+            text-align: center;
+            text-shadow: 0 10px 0 lime;
+            animation: arrowMove 2.5s infinite;
+        }
+    }
+}
+@keyframes arrowMove{
+    0%{
+        transform: translateY(-45px);
+    }
+    100%{
+        transform: translateY(45px);
+    }
+}
+
+@keyframes show{
+    to{opacity: 1;}
+}
+
+@keyframes type{ 
+  from { width: 0; } 
+} 
+
+@keyframes type2{
+  0%{width: 0;}
+  50%{width: 0;}
+  100%{ width: 100; } 
+} 
+
+@keyframes blink{
+  to{opacity: .0;}
+}
