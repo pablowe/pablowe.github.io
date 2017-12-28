@@ -38,7 +38,7 @@
         animation: blink 1s infinite; }
   .welcome .arrow {
     position: absolute;
-    top: 90%;
+    top: 80%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -62,21 +62,150 @@
       -webkit-animation: arrowMove 2.5s infinite;
       animation: arrowMove 2.5s infinite; }
 
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0; }
+  .mobileMenu .menuBar {
+    width: 100vw;
+    height: 46px;
+    line-height: 46px;
+    background-color: black;
+    color: lime;
+    position: relative; }
+    .mobileMenu .menuBar p {
+      font-size: 20px;
+      padding-left: 10px;
+      letter-spacing: 3px; }
+    .mobileMenu .menuBar .hamburger {
+      position: absolute;
+      height: 20px;
+      width: 35px;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      right: 10px;
+      overflow: hidden;
+      -webkit-transition: .5s;
+      -o-transition: .5s;
+      transition: .5s; }
+      .mobileMenu .menuBar .hamburger span {
+        left: 50%;
+        position: absolute;
+        width: 80%;
+        height: 2px;
+        background-color: lime;
+        border-radius: 5px;
+        -webkit-transition: .5s;
+        -o-transition: .5s;
+        transition: .5s; }
+      .mobileMenu .menuBar .hamburger span:nth-of-type(1) {
+        top: 5%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
+      .mobileMenu .menuBar .hamburger span:nth-of-type(2) {
+        top: 5%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
+      .mobileMenu .menuBar .hamburger span:nth-of-type(3) {
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
+      .mobileMenu .menuBar .hamburger span:nth-of-type(4) {
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
+      .mobileMenu .menuBar .hamburger span:nth-of-type(5) {
+        top: 95%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
+      .mobileMenu .menuBar .hamburger span:nth-of-type(6) {
+        top: 95%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
+    .mobileMenu .menuBar .hamburger.x span:nth-of-type(1) {
+      top: 5%;
+      -webkit-transform: translate(-220%, -50%);
+      -ms-transform: translate(-220%, -50%);
+      transform: translate(-220%, -50%); }
+    .mobileMenu .menuBar .hamburger.x span:nth-of-type(2) {
+      top: 5%;
+      -webkit-transform: translate(170%, -50%);
+      -ms-transform: translate(170%, -50%);
+      transform: translate(170%, -50%); }
+    .mobileMenu .menuBar .hamburger.x span:nth-of-type(3) {
+      top: 50%;
+      -webkit-transform: translate(-220%, -50%);
+      -ms-transform: translate(-220%, -50%);
+      transform: translate(-220%, -50%); }
+    .mobileMenu .menuBar .hamburger.x span:nth-of-type(4) {
+      top: 50%;
+      -webkit-transform: translate(170%, -50%);
+      -ms-transform: translate(170%, -50%);
+      transform: translate(170%, -50%); }
+    .mobileMenu .menuBar .hamburger.x span:nth-of-type(5) {
+      top: 95%;
+      -webkit-transform: translate(-220%, -50%);
+      -ms-transform: translate(-220%, -50%);
+      transform: translate(-220%, -50%); }
+    .mobileMenu .menuBar .hamburger.x span:nth-of-type(6) {
+      top: 95%;
+      -webkit-transform: translate(170%, -50%);
+      -ms-transform: translate(170%, -50%);
+      transform: translate(170%, -50%); }
+    .mobileMenu .menuBar .hamburger.x2 span:nth-of-type(1) {
+      top: 5%;
+      -webkit-transform: translate(-220%, -50%);
+      -ms-transform: translate(-220%, -50%);
+      transform: translate(-220%, -50%); }
+    .mobileMenu .menuBar .hamburger.x2 span:nth-of-type(2) {
+      top: 5%;
+      -webkit-transform: translate(170%, -50%);
+      -ms-transform: translate(170%, -50%);
+      transform: translate(170%, -50%); }
+    .mobileMenu .menuBar .hamburger.x2 span:nth-of-type(3) {
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%) rotate(45deg);
+      -ms-transform: translate(-50%, -50%) rotate(45deg);
+      transform: translate(-50%, -50%) rotate(45deg); }
+    .mobileMenu .menuBar .hamburger.x2 span:nth-of-type(4) {
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+      -ms-transform: translate(-50%, -50%) rotate(-45deg);
+      transform: translate(-50%, -50%) rotate(-45deg); }
+    .mobileMenu .menuBar .hamburger.x2 span:nth-of-type(5) {
+      top: 95%;
+      -webkit-transform: translate(-220%, -50%);
+      -ms-transform: translate(-220%, -50%);
+      transform: translate(-220%, -50%); }
+    .mobileMenu .menuBar .hamburger.x2 span:nth-of-type(6) {
+      top: 95%;
+      -webkit-transform: translate(170%, -50%);
+      -ms-transform: translate(170%, -50%);
+      transform: translate(170%, -50%); }
+
 @-webkit-keyframes arrowMove {
   0% {
-    -webkit-transform: translateY(-45px);
-    transform: translateY(-45px); }
+    -webkit-transform: translateY(-37px);
+    transform: translateY(-37px); }
   100% {
-    -webkit-transform: translateY(45px);
-    transform: translateY(45px); } }
+    -webkit-transform: translateY(37px);
+    transform: translateY(37px); } }
 
 @keyframes arrowMove {
   0% {
-    -webkit-transform: translateY(-45px);
-    transform: translateY(-45px); }
+    -webkit-transform: translateY(-37px);
+    transform: translateY(-37px); }
   100% {
-    -webkit-transform: translateY(45px);
-    transform: translateY(45px); } }
+    -webkit-transform: translateY(37px);
+    transform: translateY(37px); } }
 
 @-webkit-keyframes show {
   to {
