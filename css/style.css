@@ -86,10 +86,7 @@
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);
       right: 10px;
-      overflow: hidden;
-      -webkit-transition: .5s;
-      -o-transition: .5s;
-      transition: .5s; }
+      overflow: hidden; }
       .mobileMenu .menuBar .hamburger span {
         left: 50%;
         position: absolute;
