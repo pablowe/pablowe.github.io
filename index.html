@@ -32,6 +32,11 @@
                 <span></span>
             </div>
         </div>
+        <div class="pulldownMenu">
+            <div id="about"><p>ABOUT</p></div>
+            <div id="skills">my skills</div>
+            <div id="contact">contact details</div>
+        </div>
     </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -58,6 +63,12 @@
                 hamburgerX = false;
             }
             
+        })
+        //MENU PULL-DOWN
+        $hamburger.on("click", function(){
+            $(".pulldownMenu div").each(function(){
+                $(this).toggleClass("active");
+            })
         })
     
         

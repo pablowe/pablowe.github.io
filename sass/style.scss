@@ -12,6 +12,7 @@
     position: relative;
     overflow: hidden;
     .text{
+        
         padding: 10px;
         position: absolute;
         top: 40%;
@@ -67,6 +68,26 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 3;
+    .pulldownMenu{
+        display: flex;
+        flex-direction: column;
+        div{
+            color: lime;
+            height: 0;
+            line-height: 20vh;
+            text-align: center;
+            text-transform: uppercase;
+            background-color: rgba(0, 0, 0, 0.85);
+            font-family: "Courier", sans-serif;
+            font-size: 0;
+            transition: .8s;
+        }
+        div.active{
+            height: 20vh;
+            font-size: 25px;
+        }
+    }
     .menuBar{
         width: 100vw;
         height: 46px;
