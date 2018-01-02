@@ -94,13 +94,14 @@
     width: 100vw;
     height: 46px;
     line-height: 46px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.85);
     color: lime;
     position: relative; }
     .mobileMenu .menuBar p {
-      font-size: 20px;
-      padding-left: 10px;
-      letter-spacing: 3px; }
+      font-family: "Courier", sans-serif;
+      cursor: pointer;
+      font-size: 15px;
+      padding-left: 10px; }
     .mobileMenu .menuBar .hamburger {
       position: absolute;
       height: 20px;
@@ -211,6 +212,16 @@
       -webkit-transform: translate(170%, -50%);
       -ms-transform: translate(170%, -50%);
       transform: translate(170%, -50%); }
+
+section {
+  padding-top: 46px; }
+
+.about {
+  width: 100vw;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
 
 @-webkit-keyframes arrowMove {
   0% {
