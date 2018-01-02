@@ -78,7 +78,7 @@
             line-height: 20vh;
             text-align: center;
             text-transform: uppercase;
-            background-color: rgba(0, 0, 0, 0.85);
+            background-color: rgba(0, 0, 0, 0.92);
             font-family: "Courier", sans-serif;
             font-size: 25px;
             transition: .8s;
@@ -93,18 +93,21 @@
         width: 100vw;
         height: 46px;
         line-height: 46px;
-        background-color: rgba(0,0,0,0.85);
+        background-color: rgba(0,0,0,0.92);
         color: lime;
         position: relative;
         p{
             font-family: "Courier", sans-serif;
-            cursor: pointer;
             font-size: 15px;
             padding-left: 10px;
+            span{
+                cursor: pointer;
+            }
             
         }
         //HAMURGER TOKEN, span for = and x animation
         .hamburger{
+            cursor: pointer;
             position: absolute;
             height: 20px;
             width: 35px;
@@ -205,24 +208,52 @@
 }
 
 section{
-    padding-top: 46px;
+    
 }
 
 .about{
     width: 100vw;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     h2{
         color: white;
         font-family: "Courier", sans-serif;
         font-size: 30px;
         white-space: nowrap;
         overflow: hidden;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        height: 50px;
+        line-height: 50px;
         width: 100vw;
     }
     h2.active{
-        animation: type 3s steps(60, end);
-        color: black;
+        animation: appear 1s both;
+    }
+    div{
+        font-family: 'Raleway', sans-serif;
+        padding: 20px 10px 0 10px;
+        position: relative;
+    }
+    .imgMe{    
+        border-radius: 50%;
+        overflow: hidden;
+        background-image: url(/img/me.jpg);
+        width: 300px;
+        height: 300px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 120%;
+        opacity: 0;
+        transition: 1s;
+    }
+    .imgMe.active{
+        opacity: 1;
+        background-size: 100%;
     }
 }
 
@@ -232,6 +263,17 @@ section{
     }
     100%{
         transform: translateY(37px);
+    }
+}
+
+@keyframes appear{
+    0%{
+        opacity: 0;
+        color: white;
+    }
+    100%{
+        opacity: 1;
+        color: black;
     }
 }
 

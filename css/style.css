@@ -81,7 +81,7 @@
       line-height: 20vh;
       text-align: center;
       text-transform: uppercase;
-      background-color: rgba(0, 0, 0, 0.85);
+      background-color: rgba(0, 0, 0, 0.92);
       font-family: "Courier", sans-serif;
       font-size: 25px;
       -webkit-transition: .8s;
@@ -95,15 +95,17 @@
     width: 100vw;
     height: 46px;
     line-height: 46px;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(0, 0, 0, 0.92);
     color: lime;
     position: relative; }
     .mobileMenu .menuBar p {
       font-family: "Courier", sans-serif;
-      cursor: pointer;
       font-size: 15px;
       padding-left: 10px; }
+      .mobileMenu .menuBar p span {
+        cursor: pointer; }
     .mobileMenu .menuBar .hamburger {
+      cursor: pointer;
       position: absolute;
       height: 20px;
       width: 35px;
@@ -214,26 +216,55 @@
       -ms-transform: translate(170%, -50%);
       transform: translate(170%, -50%); }
 
-section {
-  padding-top: 46px; }
-
 .about {
   width: 100vw;
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
   .about h2 {
     color: white;
     font-family: "Courier", sans-serif;
     font-size: 30px;
     white-space: nowrap;
     overflow: hidden;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    height: 50px;
+    line-height: 50px;
     width: 100vw; }
   .about h2.active {
-    -webkit-animation: type 3s steps(60, end);
-    animation: type 3s steps(60, end);
-    color: black; }
+    -webkit-animation: appear 1s both;
+    animation: appear 1s both; }
+  .about div {
+    font-family: 'Raleway', sans-serif;
+    padding: 20px 10px 0 10px;
+    position: relative; }
+  .about .imgMe {
+    border-radius: 50%;
+    overflow: hidden;
+    background-image: url(/img/me.jpg);
+    width: 300px;
+    height: 300px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 120%;
+    opacity: 0;
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s; }
+  .about .imgMe.active {
+    opacity: 1;
+    background-size: 100%; }
 
 @-webkit-keyframes arrowMove {
   0% {
@@ -250,6 +281,22 @@ section {
   100% {
     -webkit-transform: translateY(37px);
     transform: translateY(37px); } }
+
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0;
+    color: white; }
+  100% {
+    opacity: 1;
+    color: black; } }
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    color: white; }
+  100% {
+    opacity: 1;
+    color: black; } }
 
 @-webkit-keyframes show {
   to {

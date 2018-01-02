@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&amp;subset=latin-ext" rel="stylesheet">
 
 </head>
 
@@ -41,7 +42,19 @@
     
     <section class="about">
        <h2>about me</h2>
+       <div class="imgMe">
+       </div>
+       <div><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum quos, distinctio dicta sint itaque at, esse nulla repudiandae, vel praesentium numquam autem perferendis temporibus id mollitia asperiores maiores totam tenetur.
+       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nam temporibus minus incidunt quisquam porro esse, ab! Totam accusamus, ipsam doloribus voluptatibus, dolore fugit earum omnis consectetur reiciendis incidunt itaque!</p></div>
         
+    </section>
+    <section class="skills">
+       <h2>My Skills</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At reiciendis tenetur quam accusamus, voluptates, ullam natus fuga autem hic nostrum sequi, earum magni unde laudantium sint veniam quaerat repellat eaque?</p>
+    </section>
+    <section class="contact">
+       <h2>Contact details</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum explicabo vero optio perspiciatis quo cumque porro vitae, nulla, nesciunt hic laborum! Corporis culpa ipsam ea porro nihil, illum deleniti molestiae.</p>
     </section>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -50,37 +63,47 @@
         $hamburger = $(".hamburger");
         let hamburgerX = false;
         
+        function changeToDefault(){
+            $hamburger.addClass("x");
+            setTimeout(function(){
+                $hamburger.removeClass("x");
+                $hamburger.addClass("x2");
+            }, 300)
+            hamburgerX = true;
+        }
+        function changeToX(){
+            $hamburger.removeClass("x2");
+            $hamburger.addClass("x");
+            setTimeout(function(){
+                $hamburger.removeClass("x");
+            }, 300)
+            hamburgerX = false;
+        }
+        
         $hamburger.on("click", function(){
             if(hamburgerX === false){
-                $hamburger.addClass("x");
-                setTimeout(function(){
-                    $hamburger.removeClass("x");
-                    $hamburger.addClass("x2");
-                }, 300)
-                hamburgerX = true;
+                changeToDefault();
             }
             else{
-                $hamburger.removeClass("x2");
-                $hamburger.addClass("x");
-                setTimeout(function(){
-                    $hamburger.removeClass("x");
-                }, 300)
-                hamburgerX = false;
+                changeToX();
             }
             
         })
         //MENU PULL-DOWN
-        $hamburger.on("click", function(){
+        $hamburger.on("click", pullDown);
+        
+        function pullDown(){
             $(".pulldownMenu div").each(function(){
                 $(this).toggleClass("active");
             })
-        })
+        }
         
         //section about
         const sectionAbout = document.querySelector("section.about");
         const sectionAboutHeight = sectionAbout.offsetHeight;
         const sectionAboutFromTop = sectionAbout.offsetTop;
         const secAboutH2 = document.querySelector("section.about h2");
+        const imgMe = document.querySelector(".imgMe");
         
         var didScroll = false;
         window.onscroll = doOnScroll;
@@ -94,14 +117,53 @@
                 secAboutH2.classList.add("active");
             }
         }
+        function scrollAboutImgAnimation(){
+             if(window.scrollY > sectionAboutFromTop-sectionAboutHeight+250){
+                imgMe.classList.add("active");
+            }
+        }
         
         setInterval(function(){
             if(didScroll){
                 didScroll = false;
-                console.log('You scrolled');
                 scrollH2Animation();
+                scrollAboutImgAnimation();
             }
         }, 100);
+        
+        //menu navigation
+        let menuBarHeight = 46;
+
+        $("#about").on("click", function() {
+            changeToX();
+            pullDown();
+
+            $("html, body").animate({
+                scrollTop: $(".about").offset().top - menuBarHeight
+            }, 700);
+        })
+        $("#skills").on("click", function() {
+            changeToX();
+            pullDown();
+
+            $("html, body").animate({
+                scrollTop: $(".skills").offset().top - menuBarHeight
+            }, 700);
+        })
+        $("#contact").on("click", function() {
+            changeToX();
+            pullDown();
+
+            $("html, body").animate({
+                scrollTop: $(".contact").offset().top - menuBarHeight
+            }, 700);
+        })
+        //arrow scroll down
+        $(".arrow").on("click", function() {
+            $("html, body").animate({
+                scrollTop: $(".about").offset().top - menuBarHeight
+            }, 700);
+        })
     
         
         
