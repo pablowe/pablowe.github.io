@@ -83,13 +83,14 @@
       text-transform: uppercase;
       background-color: rgba(0, 0, 0, 0.85);
       font-family: "Courier", sans-serif;
-      font-size: 0;
+      font-size: 25px;
       -webkit-transition: .8s;
       -o-transition: .8s;
-      transition: .8s; }
+      transition: .8s;
+      overflow: hidden;
+      cursor: pointer; }
     .mobileMenu .pulldownMenu div.active {
-      height: 20vh;
-      font-size: 25px; }
+      height: 20vh; }
   .mobileMenu .menuBar {
     width: 100vw;
     height: 46px;
@@ -222,6 +223,17 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
+  .about h2 {
+    color: white;
+    font-family: "Courier", sans-serif;
+    font-size: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100vw; }
+  .about h2.active {
+    -webkit-animation: type 3s steps(60, end);
+    animation: type 3s steps(60, end);
+    color: black; }
 
 @-webkit-keyframes arrowMove {
   0% {

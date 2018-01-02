@@ -38,7 +38,9 @@
             <div id="contact">contact details</div>
         </div>
     </div>
+    
     <section class="about">
+       <h2>about me</h2>
         
     </section>
     
@@ -73,6 +75,33 @@
                 $(this).toggleClass("active");
             })
         })
+        
+        //section about
+        const sectionAbout = document.querySelector("section.about");
+        const sectionAboutHeight = sectionAbout.offsetHeight;
+        const sectionAboutFromTop = sectionAbout.offsetTop;
+        const secAboutH2 = document.querySelector("section.about h2");
+        
+        var didScroll = false;
+        window.onscroll = doOnScroll;
+        
+        function doOnScroll(){
+            didScroll = true;
+        }
+        
+        function scrollH2Animation(e){
+            if(window.scrollY > sectionAboutFromTop-sectionAboutHeight+250){
+                secAboutH2.classList.add("active");
+            }
+        }
+        
+        setInterval(function(){
+            if(didScroll){
+                didScroll = false;
+                console.log('You scrolled');
+                scrollH2Animation();
+            }
+        }, 100);
     
         
         

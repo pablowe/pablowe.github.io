@@ -80,12 +80,13 @@
             text-transform: uppercase;
             background-color: rgba(0, 0, 0, 0.85);
             font-family: "Courier", sans-serif;
-            font-size: 0;
+            font-size: 25px;
             transition: .8s;
+            overflow: hidden;
+            cursor: pointer;
         }
         div.active{
             height: 20vh;
-            font-size: 25px;
         }
     }
     .menuBar{
@@ -100,6 +101,7 @@
             cursor: pointer;
             font-size: 15px;
             padding-left: 10px;
+            
         }
         //HAMURGER TOKEN, span for = and x animation
         .hamburger{
@@ -209,7 +211,19 @@ section{
 .about{
     width: 100vw;
     min-height: 100vh;
-    display: flex; 
+    display: flex;
+    h2{
+        color: white;
+        font-family: "Courier", sans-serif;
+        font-size: 30px;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100vw;
+    }
+    h2.active{
+        animation: type 3s steps(60, end);
+        color: black;
+    }
 }
 
 @keyframes arrowMove{
