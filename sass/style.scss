@@ -1,46 +1,44 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 
-.welcome{
+.welcome {
     background-color: #000;
     height: 100vh;
     width: 100vw;
     position: relative;
     overflow: hidden;
-    .text{
-        
+    .text {
+
         padding: 10px;
         position: absolute;
         top: 40%;
         transform: translateY(-50%);
-        p{
+        p {
             color: lime;
             font-family: "Courier", sans-serif;
             font-size: 20px;
             white-space: nowrap;
             overflow: hidden;
             width: 30em;
-            animation: type 3s steps(60, end);
+            animation: type 2s steps(60, end);
         }
-        p:nth-of-type(2){
-            animation: type2 6s steps(60, end);
-            
-            .rect{
-            color: lime;
-            background-color: lime;
-            font-size: 20px;
-            
-            width: 5px;
-            animation: blink 1s infinite;
+        p:nth-of-type(2) {
+            animation: type2 3s steps(60, end);
+            .rect {
+                color: lime;
+                background-color: lime;
+                font-size: 20px;
+                width: 5px;
+                animation: blink 1s infinite;
             }
         }
-        
+
     }
-    .arrow{
+    .arrow {
         position: absolute;
         top: 80%;
         left: 50%;
@@ -52,8 +50,8 @@
         overflow: hidden;
         opacity: 0;
         animation: show 1s both;
-        animation-delay: 4s;
-        i{
+        animation-delay: 2s;
+        i {
             width: 100%;
             font-size: 40px;
             color: lime;
@@ -64,15 +62,16 @@
     }
 }
 
-.mobileMenu{
+$menuBarHeight: 46px;
+.mobileMenu {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 3;
-    .pulldownMenu{
+    .pulldownMenu {
         display: flex;
         flex-direction: column;
-        div{
+        div {
             color: lime;
             height: 0;
             line-height: 20vh;
@@ -85,28 +84,27 @@
             overflow: hidden;
             cursor: pointer;
         }
-        div.active{
+        div.active {
             height: 20vh;
         }
     }
-    .menuBar{
+    .menuBar {
         width: 100vw;
-        height: 46px;
+        height: $menuBarHeight;
         line-height: 46px;
-        background-color: rgba(0,0,0,0.92);
+        background-color: rgba(0, 0, 0, 0.92);
         color: lime;
         position: relative;
-        p{
+        p {
             font-family: "Courier", sans-serif;
             font-size: 15px;
             padding-left: 10px;
-            span{
+            span {
                 cursor: pointer;
             }
-            
-        }
-        //HAMURGER TOKEN, span for = and x animation
-        .hamburger{
+
+        } //HAMURGER TOKEN, span for = and x animation
+        .hamburger {
             cursor: pointer;
             position: absolute;
             height: 20px;
@@ -115,7 +113,7 @@
             transform: translateY(-50%);
             right: 10px;
             overflow: hidden;
-            span{
+            span {
                 left: 50%;
                 position: absolute;
                 width: 80%;
@@ -124,82 +122,80 @@
                 border-radius: 5px;
                 transition: .5s;
             }
-            span:nth-of-type(1){
+            span:nth-of-type(1) {
                 top: 5%;
                 transform: translate(-50%, -50%);
             }
-            span:nth-of-type(2){
+            span:nth-of-type(2) {
                 top: 5%;
                 transform: translate(-50%, -50%);
             }
-            span:nth-of-type(3){
+            span:nth-of-type(3) {
                 top: 50%;
                 transform: translate(-50%, -50%);
             }
-            span:nth-of-type(4){
+            span:nth-of-type(4) {
                 top: 50%;
                 transform: translate(-50%, -50%);
             }
-            span:nth-of-type(5){
+            span:nth-of-type(5) {
                 top: 95%;
                 transform: translate(-50%, -50%);
             }
-            span:nth-of-type(6){
+            span:nth-of-type(6) {
                 top: 95%;
                 transform: translate(-50%, -50%);
             }
-            
+
         }
-        .hamburger.x{
-            span:nth-of-type(1){
+        .hamburger.x {
+            span:nth-of-type(1) {
                 top: 5%;
                 transform: translate(-220%, -50%);
             }
-            span:nth-of-type(2){
+            span:nth-of-type(2) {
                 top: 5%;
                 transform: translate(170%, -50%);
             }
-            span:nth-of-type(3){
+            span:nth-of-type(3) {
                 top: 50%;
                 transform: translate(-220%, -50%);
             }
-            span:nth-of-type(4){
+            span:nth-of-type(4) {
                 top: 50%;
                 transform: translate(170%, -50%);
             }
-            span:nth-of-type(5){
+            span:nth-of-type(5) {
                 top: 95%;
                 transform: translate(-220%, -50%);
             }
-            span:nth-of-type(6){
+            span:nth-of-type(6) {
                 top: 95%;
                 transform: translate(170%, -50%);
             }
         }
-        .hamburger.x2{
-            span:nth-of-type(1){
+        .hamburger.x2 {
+            span:nth-of-type(1) {
                 top: 5%;
                 transform: translate(-220%, -50%);
             }
-            span:nth-of-type(2){
+            span:nth-of-type(2) {
                 top: 5%;
                 transform: translate(170%, -50%);
             }
-            span:nth-of-type(3){
+            span:nth-of-type(3) {
                 top: 50%;
-                transform: translate(-50%, -50%)
-                    rotate(45deg);
+                transform: translate(-50%, -50%) rotate(45deg);
             }
-            span:nth-of-type(4){
+            span:nth-of-type(4) {
                 top: 50%;
-                transform: translate(-50%, -50%)
-                    rotate(-45deg);
+                transform: translate(-50%, -50%) rotate(-45deg);
             }
-            span:nth-of-type(5){
+            span:nth-of-type(5) {
                 top: 95%;
                 transform: translate(-220%, -50%);
             }
-            span:nth-of-type(6){
+            span:nth-of-type(6) {
                 top: 95%;
                 transform: translate(170%, -50%);
             }
@@ -207,40 +203,39 @@
     }
 }
 
-section{
-    
+// ALL H2
+h2 {
+    color: white;
+    font-family: "Courier", sans-serif;
+    font-size: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    height: 50px;
+    line-height: 50px;
+    width: 100vw;
 }
 
-.about{
+h2.active {
+    animation: appear 1s both;
+}
+
+.about {
     width: 100vw;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    h2{
-        color: white;
-        font-family: "Courier", sans-serif;
-        font-size: 30px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        height: 50px;
-        line-height: 50px;
-        width: 100vw;
-    }
-    h2.active{
-        animation: appear 1s both;
-    }
-    div{
+    div {
         font-family: 'Raleway', sans-serif;
         padding: 20px 10px 0 10px;
         position: relative;
     }
-    .imgMe{    
+    .imgMe {
         border-radius: 50%;
         overflow: hidden;
-        background-image: url(/img/me.jpg);
+        background-image: url(C:/Users/pae/Desktop/stronacv/img/me.jpg);
         width: 300px;
         height: 300px;
         left: 50%;
@@ -251,46 +246,124 @@ section{
         opacity: 0;
         transition: 1s;
     }
-    .imgMe.active{
+    .imgMe.active {
         opacity: 1;
         background-size: 100%;
     }
 }
 
-@keyframes arrowMove{
-    0%{
+$logoSize: 40vw;
+.skills {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: black;
+    .wrap {
+        min-height: 90vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: flex-start;
+        h2{
+            color: black;
+        }
+        h2.active {
+            animation-direction: reverse;
+            animation-fill-mode: backwards;
+            color: white;
+            
+        }
+        div {
+            width: $logoSize;
+            height: $logoSize + 4vw;
+            background-repeat: no-repeat;
+            background-size: 0;
+            background-position: center;
+            opacity: 0;
+            transition: .5s;
+        }
+        div.active {
+            opacity: 1;
+            background-size: 100%;
+        }
+        div:nth-of-type(1) {
+            background-image: url(C:/Users/pae/Desktop/stronacv/img/html.png);
+        }
+        div:nth-of-type(2) {
+            background-image: url(C:/Users/pae/Desktop/stronacv/img/css.png);
+        }
+        div:nth-of-type(3) {
+            background-image: url(C:/Users/pae/Desktop/stronacv/img/js.png);
+        }
+        div:nth-of-type(4) {
+            background-image: url(C:/Users/pae/Desktop/stronacv/img/jq.png);
+        }
+        div:nth-of-type(5) {
+            background-image: url(C:/Users/pae/Desktop/stronacv/img/sass.png);
+        }
+    }
+    h3 {
+        color: black;
+        font-family: "Courier", sans-serif;
+        font-size: 25px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        height: 50px;
+        line-height: 50px;
+        width: 100vw;
+    }
+}
+
+.contact {}
+
+@keyframes arrowMove {
+    0% {
         transform: translateY(-37px);
     }
-    100%{
+    100% {
         transform: translateY(37px);
     }
 }
 
-@keyframes appear{
-    0%{
+@keyframes appear {
+    0% {
         opacity: 0;
         color: white;
     }
-    100%{
+    100% {
         opacity: 1;
         color: black;
     }
 }
 
-@keyframes show{
-    to {opacity: 1;}
+@keyframes show {
+    to {
+        opacity: 1;
+    }
 }
 
-@keyframes type{ 
-    from {width: 0;} 
-} 
+@keyframes type {
+    from {
+        width: 0;
+    }
+}
 
-@keyframes type2{
-    0% {width: 0;}
-    50% {width: 0;}
-    100% {width: 100;} 
-} 
+@keyframes type2 {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 0;
+    }
+    100% {
+        width: 100;
+    }
+}
 
-@keyframes blink{
-    to {opacity: .0;}
+@keyframes blink {
+    to {
+        opacity: .0;
+    }
 }

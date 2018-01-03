@@ -24,11 +24,11 @@
       white-space: nowrap;
       overflow: hidden;
       width: 30em;
-      -webkit-animation: type 3s steps(60, end);
-      animation: type 3s steps(60, end); }
+      -webkit-animation: type 2s steps(60, end);
+      animation: type 2s steps(60, end); }
     .welcome .text p:nth-of-type(2) {
-      -webkit-animation: type2 6s steps(60, end);
-      animation: type2 6s steps(60, end); }
+      -webkit-animation: type2 3s steps(60, end);
+      animation: type2 3s steps(60, end); }
       .welcome .text p:nth-of-type(2) .rect {
         color: lime;
         background-color: lime;
@@ -51,8 +51,8 @@
     opacity: 0;
     -webkit-animation: show 1s both;
     animation: show 1s both;
-    -webkit-animation-delay: 4s;
-    animation-delay: 4s; }
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s; }
     .welcome .arrow i {
       width: 100%;
       font-size: 40px;
@@ -216,6 +216,23 @@
       -ms-transform: translate(170%, -50%);
       transform: translate(170%, -50%); }
 
+h2 {
+  color: white;
+  font-family: "Courier", sans-serif;
+  font-size: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  height: 50px;
+  line-height: 50px;
+  width: 100vw; }
+
+h2.active {
+  -webkit-animation: appear 1s both;
+  animation: appear 1s both; }
+
 .about {
   width: 100vw;
   min-height: 100vh;
@@ -226,21 +243,6 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column; }
-  .about h2 {
-    color: white;
-    font-family: "Courier", sans-serif;
-    font-size: 30px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    height: 50px;
-    line-height: 50px;
-    width: 100vw; }
-  .about h2.active {
-    -webkit-animation: appear 1s both;
-    animation: appear 1s both; }
   .about div {
     font-family: 'Raleway', sans-serif;
     padding: 20px 10px 0 10px;
@@ -248,7 +250,7 @@
   .about .imgMe {
     border-radius: 50%;
     overflow: hidden;
-    background-image: url(/img/me.jpg);
+    background-image: url(C:/Users/pae/Desktop/stronacv/img/me.jpg);
     width: 300px;
     height: 300px;
     left: 50%;
@@ -265,6 +267,65 @@
   .about .imgMe.active {
     opacity: 1;
     background-size: 100%; }
+
+.skills {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: black; }
+  .skills .wrap {
+    min-height: 90vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+    .skills .wrap h2 {
+      color: black; }
+    .skills .wrap h2.active {
+      animation-direction: reverse;
+      -webkit-animation-fill-mode: backwards;
+      animation-fill-mode: backwards;
+      color: white; }
+    .skills .wrap div {
+      width: 40vw;
+      height: 44vw;
+      background-repeat: no-repeat;
+      background-size: 0;
+      background-position: center;
+      opacity: 0;
+      -webkit-transition: .5s;
+      -o-transition: .5s;
+      transition: .5s; }
+    .skills .wrap div.active {
+      opacity: 1;
+      background-size: 100%; }
+    .skills .wrap div:nth-of-type(1) {
+      background-image: url(C:/Users/pae/Desktop/stronacv/img/html.png); }
+    .skills .wrap div:nth-of-type(2) {
+      background-image: url(C:/Users/pae/Desktop/stronacv/img/css.png); }
+    .skills .wrap div:nth-of-type(3) {
+      background-image: url(C:/Users/pae/Desktop/stronacv/img/js.png); }
+    .skills .wrap div:nth-of-type(4) {
+      background-image: url(C:/Users/pae/Desktop/stronacv/img/jq.png); }
+    .skills .wrap div:nth-of-type(5) {
+      background-image: url(C:/Users/pae/Desktop/stronacv/img/sass.png); }
+  .skills h3 {
+    color: black;
+    font-family: "Courier", sans-serif;
+    font-size: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    height: 50px;
+    line-height: 50px;
+    width: 100vw; }
 
 @-webkit-keyframes arrowMove {
   0% {

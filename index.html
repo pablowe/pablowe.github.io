@@ -39,98 +39,146 @@
             <div id="contact">contact details</div>
         </div>
     </div>
-    
+
     <section class="about">
-       <h2>about me</h2>
-       <div class="imgMe">
-       </div>
-       <div><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum quos, distinctio dicta sint itaque at, esse nulla repudiandae, vel praesentium numquam autem perferendis temporibus id mollitia asperiores maiores totam tenetur.
-       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nam temporibus minus incidunt quisquam porro esse, ab! Totam accusamus, ipsam doloribus voluptatibus, dolore fugit earum omnis consectetur reiciendis incidunt itaque!</p></div>
-        
+        <h2>about me</h2>
+        <div class="imgMe">
+        </div>
+        <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum quos, distinctio dicta sint itaque at, esse nulla repudiandae, vel praesentium numquam autem perferendis temporibus id mollitia asperiores maiores totam tenetur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nam temporibus minus incidunt quisquam porro esse, ab! Totam accusamus, ipsam doloribus voluptatibus, dolore fugit earum omnis consectetur reiciendis incidunt itaque!</p>
+        </div>
+
     </section>
     <section class="skills">
-       <h2>My Skills</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At reiciendis tenetur quam accusamus, voluptates, ullam natus fuga autem hic nostrum sequi, earum magni unde laudantium sint veniam quaerat repellat eaque?</p>
+        <div class="wrap">
+            <h2>My Skills</h2>
+            <div class="html">
+
+            </div>
+            <div class="css">
+
+            </div>
+            <div class="js">
+
+            </div>
+            <div class="jq">
+
+            </div>
+            <div class="sass">
+
+            </div>
+        </div>
+        <h3>Currently learning</h3>
     </section>
     <section class="contact">
-       <h2>Contact details</h2>
+        <h2>Contact details</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum explicabo vero optio perspiciatis quo cumque porro vitae, nulla, nesciunt hic laborum! Corporis culpa ipsam ea porro nihil, illum deleniti molestiae.</p>
     </section>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         //HAMBURGER
         $hamburger = $(".hamburger");
         let hamburgerX = false;
-        
-        function changeToDefault(){
+
+        function changeToDefault() {
             $hamburger.addClass("x");
-            setTimeout(function(){
+            setTimeout(function() {
                 $hamburger.removeClass("x");
                 $hamburger.addClass("x2");
             }, 300)
             hamburgerX = true;
         }
-        function changeToX(){
+
+        function changeToX() {
             $hamburger.removeClass("x2");
             $hamburger.addClass("x");
-            setTimeout(function(){
+            setTimeout(function() {
                 $hamburger.removeClass("x");
             }, 300)
             hamburgerX = false;
         }
-        
-        $hamburger.on("click", function(){
-            if(hamburgerX === false){
+
+        $hamburger.on("click", function() {
+            if (hamburgerX === false) {
                 changeToDefault();
-            }
-            else{
+            } else {
                 changeToX();
             }
-            
+
         })
         //MENU PULL-DOWN
         $hamburger.on("click", pullDown);
-        
-        function pullDown(){
-            $(".pulldownMenu div").each(function(){
+
+        function pullDown() {
+            $(".pulldownMenu div").each(function() {
                 $(this).toggleClass("active");
             })
         }
+
+        //sections appear animations
         
-        //section about
+        //about
         const sectionAbout = document.querySelector("section.about");
         const sectionAboutHeight = sectionAbout.offsetHeight;
         const sectionAboutFromTop = sectionAbout.offsetTop;
         const secAboutH2 = document.querySelector("section.about h2");
         const imgMe = document.querySelector(".imgMe");
-        
-        var didScroll = false;
-        window.onscroll = doOnScroll;
-        
-        function doOnScroll(){
-            didScroll = true;
-        }
-        
-        function scrollH2Animation(e){
-            if(window.scrollY > sectionAboutFromTop-sectionAboutHeight+250){
+        function scrollH2Animation() {
+            if (window.scrollY > sectionAboutFromTop - sectionAboutHeight + 250) {
                 secAboutH2.classList.add("active");
             }
         }
-        function scrollAboutImgAnimation(){
-             if(window.scrollY > sectionAboutFromTop-sectionAboutHeight+250){
+
+        function scrollAboutImgAnimation() {
+            if (window.scrollY > sectionAboutFromTop - sectionAboutHeight + 250) {
                 imgMe.classList.add("active");
             }
         }
         
-        setInterval(function(){
-            if(didScroll){
+        //skills
+        const sectionSkills = document.querySelector("section.skills");
+        const sectionSkillsHeight = sectionSkills.offsetHeight;
+        const sectionSkillsFromTop = sectionSkills.offsetTop;
+        const skillLogos = document.querySelectorAll(".wrap div");
+        const secSkillsH2 = document.querySelector(".wrap h2");
+        
+        function scrollSkillsH2Anim(){
+            if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight + 250) {
+                secSkillsH2.classList.add("active");
+            }
+        }
+        function logoAnimation(){
+            if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight + 250) {
+                let delay = 0;
+                skillLogos.forEach((skillLogo)=>{
+                    setTimeout(function(){
+                        console.log("jestem");
+                        skillLogo.classList.add("active");
+                        delay+=100;
+                    }, delay)
+                })
+            }
+        }
+        
+
+        var didScroll = false;
+        window.onscroll = doOnScroll;
+
+        function doOnScroll() {
+            didScroll = true;
+        }
+
+        setInterval(function() {
+            if (didScroll) {
                 didScroll = false;
                 scrollH2Animation();
                 scrollAboutImgAnimation();
+                scrollSkillsH2Anim();
+                logoAnimation();
             }
         }, 100);
-        
+
         //menu navigation
         let menuBarHeight = 46;
 
@@ -164,9 +212,6 @@
                 scrollTop: $(".about").offset().top - menuBarHeight
             }, 700);
         })
-    
-        
-        
     </script>
 
 </body>
