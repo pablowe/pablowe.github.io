@@ -250,7 +250,7 @@ h2.active {
   .about .imgMe {
     border-radius: 50%;
     overflow: hidden;
-    background-image: url(C:/Users/pae/Desktop/stronacv/img/me.jpg);
+    background-image: url(/img/me.jpg);
     width: 300px;
     height: 300px;
     left: 50%;
@@ -286,11 +286,6 @@ h2.active {
     align-items: flex-start; }
     .skills .wrap h2 {
       color: black; }
-    .skills .wrap h2.active {
-      animation-direction: reverse;
-      -webkit-animation-fill-mode: backwards;
-      animation-fill-mode: backwards;
-      color: white; }
     .skills .wrap div {
       width: 40vw;
       height: 44vw;
@@ -305,15 +300,15 @@ h2.active {
       opacity: 1;
       background-size: 100%; }
     .skills .wrap div:nth-of-type(1) {
-      background-image: url(C:/Users/pae/Desktop/stronacv/img/html.png); }
+      background-image: url(img/html.png); }
     .skills .wrap div:nth-of-type(2) {
-      background-image: url(C:/Users/pae/Desktop/stronacv/img/css.png); }
+      background-image: url(img/css.png); }
     .skills .wrap div:nth-of-type(3) {
-      background-image: url(C:/Users/pae/Desktop/stronacv/img/js.png); }
+      background-image: url(img/js.png); }
     .skills .wrap div:nth-of-type(4) {
-      background-image: url(C:/Users/pae/Desktop/stronacv/img/jq.png); }
+      background-image: url(img/jq.png); }
     .skills .wrap div:nth-of-type(5) {
-      background-image: url(C:/Users/pae/Desktop/stronacv/img/sass.png); }
+      background-image: url(img/sass.png); }
   .skills h3 {
     color: black;
     font-family: "Courier", sans-serif;

@@ -235,7 +235,7 @@ h2.active {
     .imgMe {
         border-radius: 50%;
         overflow: hidden;
-        background-image: url(C:/Users/pae/Desktop/stronacv/img/me.jpg);
+        background-image: url(/img/me.jpg);
         width: 300px;
         height: 300px;
         left: 50%;
@@ -267,9 +267,7 @@ $logoSize: 40vw;
             color: black;
         }
         h2.active {
-            animation-direction: reverse;
-            animation-fill-mode: backwards;
-            color: white;
+            
             
         }
         div {
@@ -286,19 +284,19 @@ $logoSize: 40vw;
             background-size: 100%;
         }
         div:nth-of-type(1) {
-            background-image: url(C:/Users/pae/Desktop/stronacv/img/html.png);
+            background-image: url(img/html.png);
         }
         div:nth-of-type(2) {
-            background-image: url(C:/Users/pae/Desktop/stronacv/img/css.png);
+            background-image: url(img/css.png);
         }
         div:nth-of-type(3) {
-            background-image: url(C:/Users/pae/Desktop/stronacv/img/js.png);
+            background-image: url(img/js.png);
         }
         div:nth-of-type(4) {
-            background-image: url(C:/Users/pae/Desktop/stronacv/img/jq.png);
+            background-image: url(img/jq.png);
         }
         div:nth-of-type(5) {
-            background-image: url(C:/Users/pae/Desktop/stronacv/img/sass.png);
+            background-image: url(img/sass.png);
         }
     }
     h3 {
