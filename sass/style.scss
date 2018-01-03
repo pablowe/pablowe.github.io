@@ -267,8 +267,7 @@ $logoSize: 40vw;
             color: black;
         }
         h2.active {
-            
-            
+            animation: appear2 1s both;    
         }
         div {
             width: $logoSize;
@@ -302,15 +301,54 @@ $logoSize: 40vw;
     h3 {
         color: black;
         font-family: "Courier", sans-serif;
-        font-size: 25px;
+        font-size: 20px;
         white-space: nowrap;
         overflow: hidden;
         text-align: center;
         text-transform: uppercase;
-        letter-spacing: 1px;
         height: 50px;
         line-height: 50px;
         width: 100vw;
+    }
+    h3.active{
+        animation: appear2 1s both;
+    }
+    p{
+        color: black;
+        font-family: 'Raleway', sans-serif;
+        padding: 0 10px 0 10px;
+        transition: 1s;
+    }
+    p.active{
+        color: white;
+    }
+    .wrapLearning{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        overflow: hidden;
+        div {
+            width: $logoSize;
+            height: $logoSize + 4vw;
+            background-repeat: no-repeat;
+            background-size: 0;
+            background-position: center;
+            opacity: 0;
+            transition: .5s;
+        }
+        div.active {
+            opacity: 1;
+            background-size: 100%;
+            transform: translateX(0);
+        }
+        div:nth-of-type(1){
+            background-image: url(/img/react.png);
+            transform: translateX(-100%);
+        }
+        div:nth-of-type(2){
+            background-image: url(/img/node.png);
+            transform: translateX(100%);
+        }
     }
 }
 
@@ -333,6 +371,16 @@ $logoSize: 40vw;
     100% {
         opacity: 1;
         color: black;
+    }
+}
+@keyframes appear2 {
+    0% {
+        opacity: 0;
+        color: black;
+    }
+    100% {
+        opacity: 1;
+        color: white;
     }
 }
 

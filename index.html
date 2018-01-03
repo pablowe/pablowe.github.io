@@ -68,7 +68,17 @@
 
             </div>
         </div>
+        <h3>Additional Skills</h3>
+        <p class="additionalSkillsP">Responsive web design (media-queries, mobile first). Basic knowledge of C++ and Java. Intermediate English level.</p>
         <h3>Currently learning</h3>
+        <div class="wrapLearning">
+            <div class="react">
+                
+            </div>
+            <div class="node">
+                
+            </div>
+        </div>
     </section>
     <section class="contact">
         <h2>Contact details</h2>
@@ -144,19 +154,37 @@
         const secSkillsH2 = document.querySelector(".wrap h2");
         
         function scrollSkillsH2Anim(){
-            if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight + 250) {
+            if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight + 350) {
                 secSkillsH2.classList.add("active");
             }
         }
         function logoAnimation(){
-            if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight + 250) {
+            if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight + 350) {
                 let delay = 0;
                 skillLogos.forEach((skillLogo)=>{
                     setTimeout(function(){
-                        console.log("jestem");
                         skillLogo.classList.add("active");
-                        delay+=100;
+                        delay+=200;
                     }, delay)
+                })
+            }
+        }
+        const skillsH3 = document.querySelector(".skills h3:nth-of-type(1)");
+        const additionalSkillsP = document.querySelector(".additionalSkillsP");
+        function scrollSkillsH3Anim(){
+            if (window.scrollY > skillsH3.offsetTop - sectionSkillsHeight + 350) {
+                skillsH3.classList.add("active");
+                additionalSkillsP.classList.add("active");
+            }
+        }
+        
+        const skillsLearningH3 = document.querySelector(".skills h3:nth-of-type(2)");
+        const learningLogos = document.querySelectorAll(".wrapLearning div");
+        function scrollLearningAnim(){
+            if (window.scrollY > skillsLearningH3.offsetTop - sectionSkillsHeight + 350) {
+                skillsLearningH3.classList.add("active");
+                learningLogos.forEach((learningLogo)=>{
+                    learningLogo.classList.add("active");
                 })
             }
         }
@@ -176,6 +204,8 @@
                 scrollAboutImgAnimation();
                 scrollSkillsH2Anim();
                 logoAnimation();
+                scrollSkillsH3Anim();
+                scrollLearningAnim();
             }
         }, 100);
 

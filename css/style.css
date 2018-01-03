@@ -286,6 +286,9 @@ h2.active {
     align-items: flex-start; }
     .skills .wrap h2 {
       color: black; }
+    .skills .wrap h2.active {
+      -webkit-animation: appear2 1s both;
+      animation: appear2 1s both; }
     .skills .wrap div {
       width: 40vw;
       height: 44vw;
@@ -312,15 +315,61 @@ h2.active {
   .skills h3 {
     color: black;
     font-family: "Courier", sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 1px;
     height: 50px;
     line-height: 50px;
     width: 100vw; }
+  .skills h3.active {
+    -webkit-animation: appear2 1s both;
+    animation: appear2 1s both; }
+  .skills p {
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    padding: 0 10px 0 10px;
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s; }
+  .skills p.active {
+    color: white; }
+  .skills .wrapLearning {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    overflow: hidden; }
+    .skills .wrapLearning div {
+      width: 40vw;
+      height: 44vw;
+      background-repeat: no-repeat;
+      background-size: 0;
+      background-position: center;
+      opacity: 0;
+      -webkit-transition: .5s;
+      -o-transition: .5s;
+      transition: .5s; }
+    .skills .wrapLearning div.active {
+      opacity: 1;
+      background-size: 100%;
+      -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0); }
+    .skills .wrapLearning div:nth-of-type(1) {
+      background-image: url(/img/react.png);
+      -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      transform: translateX(-100%); }
+    .skills .wrapLearning div:nth-of-type(2) {
+      background-image: url(/img/node.png);
+      -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+      transform: translateX(100%); }
 
 @-webkit-keyframes arrowMove {
   0% {
@@ -353,6 +402,22 @@ h2.active {
   100% {
     opacity: 1;
     color: black; } }
+
+@-webkit-keyframes appear2 {
+  0% {
+    opacity: 0;
+    color: black; }
+  100% {
+    opacity: 1;
+    color: white; } }
+
+@keyframes appear2 {
+  0% {
+    opacity: 0;
+    color: black; }
+  100% {
+    opacity: 1;
+    color: white; } }
 
 @-webkit-keyframes show {
   to {
