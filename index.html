@@ -45,7 +45,7 @@
         <div class="imgMe">
         </div>
         <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum quos, distinctio dicta sint itaque at, esse nulla repudiandae, vel praesentium numquam autem perferendis temporibus id mollitia asperiores maiores totam tenetur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nam temporibus minus incidunt quisquam porro esse, ab! Totam accusamus, ipsam doloribus voluptatibus, dolore fugit earum omnis consectetur reiciendis incidunt itaque!</p>
+            <p>Hi everyone, my name is Paweł Wędrowski and I am 22 years old. Since four months I am developing my front-end skills. I am looking for a job or an internship in Warsaw. I enjoy learning new technologies and can assimilate witch new ideas quickly. Apart from improving front-end skills I am getting familiar witch back end technologies - currently Node.js. I am true game lover and in the future I want ot take part in creating them. Besides that, I run a healthy lifestyle and enjoy Netflix and chill.</p>
         </div>
 
     </section>
@@ -69,7 +69,7 @@
             </div>
         </div>
         <h3>Additional Skills</h3>
-        <p class="additionalSkillsP">Responsive web design (media-queries, mobile first). Basic knowledge of C++ and Java. Intermediate English level.</p>
+        <p class="additionalSkillsP">I am familiar with Responsive Web Design (I am not stratger to media-queries or 'mobile first' idea). Furthermore I know C++ and Java basics. Intermediate / upper-intermediate english level.</p>
         <h3>Currently learning</h3>
         <div class="wrapLearning">
             <div class="react">
@@ -84,21 +84,24 @@
         <h2>Contact details</h2>
         <div class="contactLinks">
             <div class="linkedIn">
-               <a href="https://www.linkedin.com/in/pawe%C5%82-w%C4%99drowski-452332151/">
-                <p>
-                    <i class="fa fa-linkedin-square" aria-hidden="true"></i> in/pawel wedrowski</p>
-                    </a>
+                <a href="https://www.linkedin.com/in/pawe%C5%82-w%C4%99drowski-452332151/">
+                    <p>
+                        <i class="fa fa-linkedin-square" aria-hidden="true"></i> in/pawel wedrowski</p>
+                </a>
             </div>
             <div class="github">
-               <a href="https://github.com/pablowe">
-                <p>
-                    <i class="fa fa-github" aria-hidden="true"></i> github.com/pablowe
-                </p></a>
+                <a href="https://github.com/pablowe">
+                    <p>
+                        <i class="fa fa-github" aria-hidden="true"></i> github.com/pablowe
+                    </p>
+                </a>
             </div>
             <div class="mail">
-                <p>
-                    <i class="fa fa-envelope-o" aria-hidden="true"></i> pawel.wedrowski@gmail.com
-                </p>
+                <a href="mailto:pawel.wedrowski@gmail.com">
+                    <p>
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i> pawel.wedrowski@gmail.com
+                    </p>
+                </a>
             </div>
         </div>
         <div class="map">
@@ -240,14 +243,14 @@
         //language
         const pl = document.querySelector(".pl");
         const eng = document.querySelector(".eng");
-        
+
         let isEnglish = true;
-        
+
         pl.addEventListener("click", changeLanguage);
         eng.addEventListener("click", changeLanguage);
-        
-        function changeLanguage(){
-            if(isEnglish){
+
+        function changeLanguage() {
+            if (isEnglish) {
                 // main page
                 $(".mainP1").text("Witaj świecie,");
                 $(".mainP2").text("Projektowanie stron to moja pasja");
@@ -259,19 +262,18 @@
                 $(".pulldownMenu #contact").text("Kontakt");
                 // section about
                 $(".about h2").text("O mnie");
-                $(".about div:nth-of-type(2)").text("Nazywam się Paweł Wędrowski, mam 22 lata. Od kliku miesięcy uczę się technik front-endu. Szukam pracy/stażu/praktyk w Warszawie, bardzo szybko się uczę i chętnie poznaje nowe rzeczy. Poza doskonaleniem technik front-endowych uczę się backendu - aktualnie w Node.js. Osobiście jestem zapalonym graczem - w przyszłości chciałbym pracować przy tworzeniu gier - oraz miłośnikiem aktywnego i zdrowegu trybu życia.");
+                $(".about div:nth-of-type(2)").text("Nazywam się Paweł Wędrowski, mam 22 lata. Od kliku miesięcy uczę się technik front-endu. Szukam pracy/stażu/praktyk w Warszawie, bardzo szybko się uczę i chętnie poznaje nowe rzeczy. Poza doskonaleniem technik front-endowych uczę się backendu - aktualnie w Node.js. Prywatnie jestem zapalonym graczem - w przyszłości chciałbym pracować przy tworzeniu gier - oraz miłośnikiem aktywnego i zdrowegu trybu życia.");
                 // section skills
                 $(".skills h2").text("Umiejętności");
                 $(".skills h3").text("Dodatkowe umiejętności");
-                $(".additionalSkillsP").text("Znam techniki responsywnych stron (media-queries czy pojęcie mobile first nie jest mi obce). Ponadsto znam i wykorzystuje standardy układu strony, mój kod staram się tworzyć tak, by był zrozumiały dla innych. Dodatkowo znam podstawy języka C++ oraz Java. Język angielski na poziomie intermediate / upper-intermediate.");
+                $(".additionalSkillsP").text("Znam techniki responsywnych stron (media-queries czy pojęcie mobile first nie jest mi obce). Ponadto znam i wykorzystuję standardy układu strony, mój kod staram się tworzyć tak, by był zrozumiały dla innych. Dodatkowo znam podstawy języka C++ oraz Java. Język angielski na poziomie intermediate / upper-intermediate.");
                 $(".skills h3:nth-of-type(2)").text("W trakcie nauki");
                 // section contact
                 $(".contact h2").text("Kontakt");
                 $(".dot p").text("warszawa");
-                
+
                 isEnglish = false;
-            }
-            else{
+            } else {
                 // main page
                 $(".mainP1").text("Hello world,");
                 $(".mainP2").text("web design is my passion");
@@ -283,16 +285,16 @@
                 $(".pulldownMenu #contact").text("contact details");
                 // section about
                 $(".about h2").text("about me");
-                $(".about div:nth-of-type(2)").text("tekst o mnie eng");
+                $(".about div:nth-of-type(2)").text("Hi everyone, my name is Paweł Wędrowski and I am 22 years old. Since four months I am developing my front-end skills. I am looking for a job or an internship in Warsaw. I enjoy learning new technologies and can assimilate witch new ideas quickly. Apart from improving front-end skills I am getting familiar witch back end technologies - currently Node.js. I am true game lover and in the future I want ot take part in creating them. Besides that, I run a healthy lifestyle and enjoy Netflix and chill.");
                 // section skills
                 $(".skills h2").text("My skills");
                 $(".skills h3").text("additional skills");
-                $(".additionalSkillsP").text("Dodatkowe umiejętności tekst eng");
+                $(".additionalSkillsP").text("I am familiar with Responsive Web Design (I am not stratger to media-queries or 'mobile first' idea). Furthermore I know C++ and Java basics. Intermediate / upper-intermediate english level.");
                 $(".skills h3:nth-of-type(2)").text("currently learning");
                 // section contact
                 $(".contact h2").text("contact details");
                 $(".dot p").text("warsaw");
-                
+
                 isEnglish = true;
             }
         }
