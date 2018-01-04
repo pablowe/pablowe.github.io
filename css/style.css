@@ -4,6 +4,10 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+section {
+  width: 100vw;
+  overflow: hidden; }
+
 .welcome {
   background-color: #000;
   height: 100vh;
