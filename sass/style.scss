@@ -252,7 +252,7 @@ h2.active {
     }
 }
 
-$logoSize: 40vw;
+$logoSize: 35vw;
 .skills {
     width: 100vw;
     min-height: 100vh;
@@ -263,11 +263,11 @@ $logoSize: 40vw;
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: flex-start;
-        h2{
+        h2 {
             color: black;
         }
         h2.active {
-            animation: appear2 1s both;    
+            animation: appear2 1s both;
         }
         div {
             width: $logoSize;
@@ -277,6 +277,7 @@ $logoSize: 40vw;
             background-position: center;
             opacity: 0;
             transition: .5s;
+            padding-bottom: 10px;
         }
         div.active {
             opacity: 1;
@@ -310,19 +311,19 @@ $logoSize: 40vw;
         line-height: 50px;
         width: 100vw;
     }
-    h3.active{
+    h3.active {
         animation: appear2 1s both;
     }
-    p{
+    p {
         color: black;
         font-family: 'Raleway', sans-serif;
         padding: 0 10px 0 10px;
         transition: 1s;
     }
-    p.active{
+    p.active {
         color: white;
     }
-    .wrapLearning{
+    .wrapLearning {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
@@ -336,20 +337,20 @@ $logoSize: 40vw;
             opacity: 0;
             transition: .5s;
         }
-        div:nth-of-type(1){
+        div:nth-of-type(1) {
             background-image: url(/img/react.png);
             transform: translateX(-100%);
         }
-        div:nth-of-type(1).active{
+        div:nth-of-type(1).active {
             opacity: 1;
             background-size: 100%;
             transform: translateX(0);
         }
-        div:nth-of-type(2){
+        div:nth-of-type(2) {
             background-image: url(/img/node.png);
             transform: translateX(100%);
         }
-        div:nth-of-type(2).active{
+        div:nth-of-type(2).active {
             opacity: 1;
             background-size: 100%;
             transform: translateX(0);
@@ -357,7 +358,67 @@ $logoSize: 40vw;
     }
 }
 
-.contact {}
+.contact {
+    position: relative;
+    h2 {
+        color: black;
+    }
+    .contactLinks{
+        display: flex;
+        flex-direction: roe;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        div{
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            width: 100vw;
+            text-align: center;
+            font-family: 'Courier', 'Raleway', sans-serif;
+            padding: 10px 0 10px 0;
+            font-size: 18px;
+        }
+    }
+    .map {
+        width: 65vw;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        
+        img {
+            width: 100%;
+        }
+        .dot {
+            position: absolute;
+            top: 40%;
+            left: 70%;
+            width: 120px;
+            .dotIn {
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background-color: black;
+                border-radius: 50%;
+                top: 50%;
+                transform: translateY(-50%);
+                box-shadow: 0 0 10px 3px lime;
+                animation: dotBlink 1.2s infinite;
+                animation-direction: alternate-reverse;
+            }
+            p {
+                padding-left: 16px;
+                text-transform: uppercase;
+                font-family: 'Raleway', sans-serif;
+            }
+        }
+    }
+}
+@keyframes dotBlink{
+    to{
+        box-shadow: 0 0 0 0 lime;
+    }
+}
 
 @keyframes arrowMove {
     0% {
@@ -378,6 +439,7 @@ $logoSize: 40vw;
         color: black;
     }
 }
+
 @keyframes appear2 {
     0% {
         opacity: 0;

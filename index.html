@@ -14,8 +14,8 @@
 <body>
     <section class="welcome">
         <div class="text">
-            <p>Hello world,</p>
-            <p>web design is my passion<span class="rect">|</span></p>
+            <p class="mainP1">Hello world,</p>
+            <p class="mainP2">web design is my passion<span class="rect">|</span></p>
         </div>
         <div class="arrow">
             <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -73,16 +73,41 @@
         <h3>Currently learning</h3>
         <div class="wrapLearning">
             <div class="react">
-                
+
             </div>
             <div class="node">
-                
+
             </div>
         </div>
     </section>
     <section class="contact">
         <h2>Contact details</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum explicabo vero optio perspiciatis quo cumque porro vitae, nulla, nesciunt hic laborum! Corporis culpa ipsam ea porro nihil, illum deleniti molestiae.</p>
+        <div class="contactLinks">
+            <div class="linkedIn">
+               <a href="https://www.linkedin.com/in/pawe%C5%82-w%C4%99drowski-452332151/">
+                <p>
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i> in/pawel wedrowski</p>
+                    </a>
+            </div>
+            <div class="github">
+               <a href="https://github.com/pablowe">
+                <p>
+                    <i class="fa fa-github" aria-hidden="true"></i> github.com/pablowe
+                </p></a>
+            </div>
+            <div class="mail">
+                <p>
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i> pawel.wedrowski@gmail.com
+                </p>
+            </div>
+        </div>
+        <div class="map">
+            <img src="img/map.png" alt="map">
+            <div class="dot">
+                <div class="dotIn"></div>
+                <p>warsaw</p>
+            </div>
+        </div>
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -127,13 +152,14 @@
         }
 
         //sections appear animations
-        
+
         //about
         const sectionAbout = document.querySelector("section.about");
         const sectionAboutHeight = sectionAbout.offsetHeight;
         const sectionAboutFromTop = sectionAbout.offsetTop;
         const secAboutH2 = document.querySelector("section.about h2");
         const imgMe = document.querySelector(".imgMe");
+
         function scrollH2Animation() {
             if (window.scrollY > sectionAboutFromTop - sectionAboutHeight + 250) {
                 secAboutH2.classList.add("active");
@@ -145,50 +171,53 @@
                 imgMe.classList.add("active");
             }
         }
-        
+
         //skills
         const sectionSkills = document.querySelector("section.skills");
         const sectionSkillsHeight = sectionSkills.offsetHeight;
         const sectionSkillsFromTop = sectionSkills.offsetTop;
         const skillLogos = document.querySelectorAll(".wrap div");
         const secSkillsH2 = document.querySelector(".wrap h2");
-        
-        function scrollSkillsH2Anim(){
+
+        function scrollSkillsH2Anim() {
             if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight + 350) {
                 secSkillsH2.classList.add("active");
             }
         }
-        function logoAnimation(){
+
+        function logoAnimation() {
             if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight + 350) {
                 let delay = 0;
-                skillLogos.forEach((skillLogo)=>{
-                    setTimeout(function(){
+                skillLogos.forEach((skillLogo) => {
+                    setTimeout(function() {
                         skillLogo.classList.add("active");
-                        delay+=200;
+                        delay += 200;
                     }, delay)
                 })
             }
         }
         const skillsH3 = document.querySelector(".skills h3:nth-of-type(1)");
         const additionalSkillsP = document.querySelector(".additionalSkillsP");
-        function scrollSkillsH3Anim(){
+
+        function scrollSkillsH3Anim() {
             if (window.scrollY > skillsH3.offsetTop - sectionSkillsHeight + 350) {
                 skillsH3.classList.add("active");
                 additionalSkillsP.classList.add("active");
             }
         }
-        
+
         const skillsLearningH3 = document.querySelector(".skills h3:nth-of-type(2)");
         const learningLogos = document.querySelectorAll(".wrapLearning div");
-        function scrollLearningAnim(){
+
+        function scrollLearningAnim() {
             if (window.scrollY > skillsLearningH3.offsetTop - sectionSkillsHeight + 350) {
                 skillsLearningH3.classList.add("active");
-                learningLogos.forEach((learningLogo)=>{
+                learningLogos.forEach((learningLogo) => {
                     learningLogo.classList.add("active");
                 })
             }
         }
-        
+
 
         var didScroll = false;
         window.onscroll = doOnScroll;
@@ -208,6 +237,65 @@
                 scrollLearningAnim();
             }
         }, 100);
+        //language
+        const pl = document.querySelector(".pl");
+        const eng = document.querySelector(".eng");
+        
+        let isEnglish = true;
+        
+        pl.addEventListener("click", changeLanguage);
+        eng.addEventListener("click", changeLanguage);
+        
+        function changeLanguage(){
+            if(isEnglish){
+                // main page
+                $(".mainP1").text("Witaj świecie,");
+                $(".mainP2").text("Projektowanie stron to moja pasja");
+                // text size change
+                $(".mainP2").css("font-size", "16px");
+                // menu
+                $(".pulldownMenu #about").text("O mnie");
+                $(".pulldownMenu #skills").text("Umiejętności");
+                $(".pulldownMenu #contact").text("Kontakt");
+                // section about
+                $(".about h2").text("O mnie");
+                $(".about div:nth-of-type(2)").text("tekst o mnie pl");
+                // section skills
+                $(".skills h2").text("Umiejętności");
+                $(".skills h3").text("Dodatkowe umiejętności");
+                $(".additionalSkillsP").text("Dodatkowe umiejętności tekst");
+                $(".skills h3:nth-of-type(2)").text("W trakcie nauki");
+                // section contact
+                $(".contact h2").text("Kontakt");
+                $(".dot p").text("warszawa");
+                
+                isEnglish = false;
+            }
+            else{
+                // main page
+                $(".mainP1").text("Hello world,");
+                $(".mainP2").text("web design is my passion");
+                // text size change
+                $(".mainP2").css("font-size", "20px");
+                // menu
+                $(".pulldownMenu #about").text("About me");
+                $(".pulldownMenu #skills").text("my skills");
+                $(".pulldownMenu #contact").text("contact details");
+                // section about
+                $(".about h2").text("about me");
+                $(".about div:nth-of-type(2)").text("tekst o mnie eng");
+                // section skills
+                $(".skills h2").text("My skills");
+                $(".skills h3").text("additional skills");
+                $(".additionalSkillsP").text("Dodatkowe umiejętności tekst eng");
+                $(".skills h3:nth-of-type(2)").text("currently learning");
+                // section contact
+                $(".contact h2").text("contact details");
+                $(".dot p").text("warsaw");
+                
+                isEnglish = true;
+            }
+        }
 
         //menu navigation
         let menuBarHeight = 46;
@@ -242,6 +330,7 @@
                 scrollTop: $(".about").offset().top - menuBarHeight
             }, 700);
         })
+
     </script>
 
 </body>

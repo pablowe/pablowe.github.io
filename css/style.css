@@ -290,15 +290,16 @@ h2.active {
       -webkit-animation: appear2 1s both;
       animation: appear2 1s both; }
     .skills .wrap div {
-      width: 40vw;
-      height: 44vw;
+      width: 35vw;
+      height: 39vw;
       background-repeat: no-repeat;
       background-size: 0;
       background-position: center;
       opacity: 0;
       -webkit-transition: .5s;
       -o-transition: .5s;
-      transition: .5s; }
+      transition: .5s;
+      padding-bottom: 10px; }
     .skills .wrap div.active {
       opacity: 1;
       background-size: 100%; }
@@ -345,8 +346,8 @@ h2.active {
     justify-content: space-around;
     overflow: hidden; }
     .skills .wrapLearning div {
-      width: 40vw;
-      height: 44vw;
+      width: 35vw;
+      height: 39vw;
       background-repeat: no-repeat;
       background-size: 0;
       background-position: center;
@@ -376,6 +377,76 @@ h2.active {
       -webkit-transform: translateX(0);
       -ms-transform: translateX(0);
       transform: translateX(0); }
+
+.contact {
+  position: relative; }
+  .contact h2 {
+    color: black; }
+  .contact .contactLinks {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: roe;
+    flex-direction: roe;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+    .contact .contactLinks div {
+      width: 100vw;
+      text-align: center;
+      font-family: 'Courier', 'Raleway', sans-serif;
+      padding: 10px 0 10px 0;
+      font-size: 18px; }
+      .contact .contactLinks div a {
+        text-decoration: none;
+        color: black; }
+  .contact .map {
+    width: 65vw;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%); }
+    .contact .map img {
+      width: 100%; }
+    .contact .map .dot {
+      position: absolute;
+      top: 40%;
+      left: 70%;
+      width: 120px; }
+      .contact .map .dot .dotIn {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: black;
+        border-radius: 50%;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-box-shadow: 0 0 10px 3px lime;
+        box-shadow: 0 0 10px 3px lime;
+        -webkit-animation: dotBlink 1.2s infinite;
+        animation: dotBlink 1.2s infinite;
+        animation-direction: alternate-reverse; }
+      .contact .map .dot p {
+        padding-left: 16px;
+        text-transform: uppercase;
+        font-family: 'Raleway', sans-serif; }
+
+@-webkit-keyframes dotBlink {
+  to {
+    -webkit-box-shadow: 0 0 0 0 lime;
+    box-shadow: 0 0 0 0 lime; } }
+
+@keyframes dotBlink {
+  to {
+    -webkit-box-shadow: 0 0 0 0 lime;
+    box-shadow: 0 0 0 0 lime; } }
 
 @-webkit-keyframes arrowMove {
   0% {
