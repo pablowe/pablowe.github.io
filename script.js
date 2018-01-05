@@ -47,14 +47,28 @@
         const imgMe = document.querySelector(".imgMe");
 
         function scrollH2Animation() {
-            if (window.scrollY > sectionAboutFromTop - sectionAboutHeight + 250) {
+            if(window.innerHeight>500){
+                if (window.scrollY > sectionAboutFromTop - sectionAboutHeight - 200) {
                 secAboutH2.classList.add("active");
+                }
+            }
+            else{
+                if (window.scrollY > sectionAboutFromTop - sectionAboutHeight + 250) {
+                secAboutH2.classList.add("active");
+                }
             }
         }
 
         function scrollAboutImgAnimation() {
-            if (window.scrollY > sectionAboutFromTop - sectionAboutHeight + 250) {
+            if(window.innerHeight>500){
+                if (window.scrollY > sectionAboutFromTop - sectionAboutHeight - 200) {
                 imgMe.classList.add("active");
+                }
+                else{
+                    if (window.scrollY > sectionAboutFromTop - sectionAboutHeight + 250) {
+                imgMe.classList.add("active");
+                }
+                }
             }
         }
 
@@ -66,13 +80,21 @@
         const secSkillsH2 = document.querySelector(".wrap h2");
 
         function scrollSkillsH2Anim() {
-            if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight + 350) {
+            if(window.innerHeight>500){
+                if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight - 200) {
                 secSkillsH2.classList.add("active");
+                }
+            }
+            else{
+                if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight + 350) {
+                secSkillsH2.classList.add("active");
+            }
             }
         }
 
         function logoAnimation() {
-            if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight + 350) {
+            if(window.innerHeight>500){
+                if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight - 200) {
                 let delay = 0;
                 skillLogos.forEach((skillLogo) => {
                     delay += 100;
@@ -80,15 +102,35 @@
                         skillLogo.classList.add("active");
                     }, delay)
                 })
+                }
+            }
+            else{
+                if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight + 350) {
+                let delay = 0;
+                skillLogos.forEach((skillLogo) => {
+                    delay += 100;
+                    setTimeout(function() {
+                        skillLogo.classList.add("active");
+                    }, delay)
+                })
+                }
             }
         }
         const skillsH3 = document.querySelector(".skills h3:nth-of-type(1)");
         const additionalSkillsP = document.querySelector(".additionalSkillsP");
 
         function scrollSkillsH3Anim() {
-            if (window.scrollY > skillsH3.offsetTop - sectionSkillsHeight + 350) {
+            if(window.innerHeight>500){
+                if (window.scrollY > skillsH3.offsetTop - sectionSkillsHeight - 200) {
                 skillsH3.classList.add("active");
                 additionalSkillsP.classList.add("active");
+            }
+            }
+            else{
+                if (window.scrollY > skillsH3.offsetTop - sectionSkillsHeight + 350) {
+                skillsH3.classList.add("active");
+                additionalSkillsP.classList.add("active");
+            }
             }
         }
 
@@ -96,11 +138,21 @@
         const learningLogos = document.querySelectorAll(".wrapLearning div");
 
         function scrollLearningAnim() {
-            if (window.scrollY > skillsLearningH3.offsetTop - sectionSkillsHeight + 350) {
+            if(window.innerHeight>500){
+                if (window.scrollY > skillsLearningH3.offsetTop - sectionSkillsHeight - 200) {
                 skillsLearningH3.classList.add("active");
                 learningLogos.forEach((learningLogo) => {
                     learningLogo.classList.add("active");
                 })
+            }
+            }
+            else{
+                if (window.scrollY > skillsLearningH3.offsetTop - sectionSkillsHeight + 350) {
+                skillsLearningH3.classList.add("active");
+                learningLogos.forEach((learningLogo) => {
+                    learningLogo.classList.add("active");
+                })
+            }
             }
         }
 
@@ -138,7 +190,9 @@
                 $(".mainP1").text("Witaj świecie,");
                 $(".mainP2").text("Projektowanie stron to moja pasja");
                 // text size change
-                $(".mainP2").css("font-size", "16px");
+                if(window.innerWidth<500){
+                    $(".mainP2").css("font-size", "16px");
+                }
                 // menu
                 $(".pulldownMenu #about").text("O mnie");
                 $(".pulldownMenu #skills").text("Umiejętności");
@@ -161,7 +215,9 @@
                 $(".mainP1").text("Hello world,");
                 $(".mainP2").text("web design is my passion");
                 // text size change
-                $(".mainP2").css("font-size", "20px");
+                if(window.innerWidth<500){
+                    $(".mainP2").css("font-size", "20px");
+                }
                 // menu
                 $(".pulldownMenu #about").text("About me");
                 $(".pulldownMenu #skills").text("my skills");

@@ -4,16 +4,14 @@
     box-sizing: border-box;
 }
 
-
-
-section{
-    width: 100vw;
-    overflow: hidden;
+body {
+    overflow-x: hidden;
 }
 
 .welcome {
     background-color: #000;
     height: 100vh;
+    max-width: 100%;
     width: 100vw;
     position: relative;
     overflow: hidden;
@@ -45,6 +43,7 @@ section{
 
     }
     .arrow {
+        cursor: pointer;
         position: absolute;
         top: 80%;
         left: 50%;
@@ -70,6 +69,7 @@ section{
 
 $menuBarHeight: 46px;
 .mobileMenu {
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
@@ -95,13 +95,16 @@ $menuBarHeight: 46px;
         }
     }
     .menuBar {
-        width: 100vw;
+
+        max-width: 100%;
         height: $menuBarHeight;
         line-height: 46px;
         background-color: rgba(0, 0, 0, 0.92);
         color: lime;
         position: relative;
         p {
+
+            width: 90%;
             font-family: "Courier", sans-serif;
             font-size: 15px;
             padding-left: 10px;
@@ -230,6 +233,7 @@ h2.active {
 
 .about {
     width: 100vw;
+    max-width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -261,6 +265,7 @@ h2.active {
 $logoSize: 35vw;
 .skills {
     width: 100vw;
+    max-width: 100%;
     min-height: 100vh;
     background-color: black;
     .wrap {
@@ -316,6 +321,7 @@ $logoSize: 35vw;
         height: 50px;
         line-height: 50px;
         width: 100vw;
+        max-width: 100%;
     }
     h3.active {
         animation: appear2 1s both;
@@ -369,19 +375,22 @@ $logoSize: 35vw;
     h2 {
         color: black;
     }
-    .contactLinks{
+    .contactLinks {
         display: flex;
         flex-direction: roe;
         flex-wrap: wrap;
         justify-content: space-between;
-        div{
-            a{
+        div {
+            a {
                 text-decoration: none;
                 color: black;
             }
             width: 100vw;
+            max-width: 100%;
             text-align: center;
-            font-family: 'Courier', 'Raleway', sans-serif;
+            font-family: 'Courier',
+            'Raleway',
+            sans-serif;
             padding: 10px 0 10px 0;
             font-size: 18px;
         }
@@ -391,7 +400,7 @@ $logoSize: 35vw;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        
+
         img {
             width: 100%;
         }
@@ -420,8 +429,9 @@ $logoSize: 35vw;
         }
     }
 }
-@keyframes dotBlink{
-    to{
+
+@keyframes dotBlink {
+    to {
         box-shadow: 0 0 0 0 lime;
     }
 }
@@ -484,5 +494,175 @@ $logoSize: 35vw;
 @keyframes blink {
     to {
         opacity: .0;
+    }
+}
+
+@media (min-width:600px) {
+    $logoSize: 30vw;
+    .about {
+        min-height: 60vh;
+    }
+    .skills {
+        .wrap {
+            div {
+                width: $logoSize;
+                height: $logoSize + 2vw;
+            }
+        }
+        .wrapLearning {
+            div {
+                width: $logoSize;
+                height: $logoSize + 2vw;
+            }
+        }
+    }
+    .contact {
+        .map {
+            width: 50vw;
+        }
+    }
+}
+
+@media (min-width:800px) {
+    $logoSize: 21vw;
+    .about {
+        min-height: 60vh;
+    }
+    .skills {
+        .wrap {
+            div {
+                width: $logoSize;
+                height: $logoSize + 2vw;
+            }
+        }
+        .wrapLearning {
+            div {
+                width: $logoSize;
+                height: $logoSize + 2vw;
+            }
+        }
+    }
+    .contact {
+        .map {
+            width: 40vw;
+        }
+    }
+}
+
+@media (min-width:1024px) {
+    $logoSize: 10vw;
+    h2{
+        font-size: 40px;
+    }
+    
+    .welcome{
+        .text{
+            p{
+                font-size: 30px;
+                padding-left: 40px;
+            }
+        }
+        .arrow:hover i{
+            animation-duration: .5s;
+        }
+    }
+    .mobileMenu{
+        .menuBar{
+            p{
+                font-size: 25px;
+            }
+            .hamburger{
+                display: none;
+            }
+        }
+        .pulldownMenu{
+            position: fixed;
+            top: 0;
+            right: 30px;
+            height: 46px;
+            flex-direction: row;
+            z-index: 4;
+            justify-content: space-between;
+            width: 600px;
+            div{
+                height: 46px;
+                line-height: 46px;
+            }
+            div.active{
+                height: 46px; 
+            }
+            div:hover{
+                color: black;
+                background-color: lime;
+            }
+        }
+    }
+    .about {
+        min-height: 60vh;
+        p{
+            font-size: 25px;
+        }
+    }
+    .skills {
+        min-height: 50vh;
+        .wrap {
+            min-height: 40vh;
+            div {
+                width: $logoSize;
+                height: $logoSize + 2vw;
+            }
+        }
+        .wrapLearning {
+            div {
+                width: $logoSize;
+                height: $logoSize + 2vw;
+            }
+        }
+        h3{
+            font-size: 30px;
+        }
+        p{
+            font-size: 25px;
+        }
+    }
+    .contact {
+        .contactLinks{
+            padding-top: 84px;
+            width: 50vw;
+            float: left;
+            div{
+                font-size: 20px;
+            }
+        }
+        .map {
+            left: 75%;
+            height: 300px;
+            width: 290px;
+        }
+        
+    }
+}
+
+@media (min-width: 1280px){
+    .skills {
+        min-height: 30vh;
+        .wrap {
+            min-height: 30vh;
+            div {
+                width: 200px;
+                height: 240px;
+            }
+        }
+        .wrapLearning {
+            div {
+                width: 200px;
+                height: 240px;
+            }
+        }
+    }
+    .contact {
+        .map {
+            width: 300px;
+        }
     }
 }

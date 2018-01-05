@@ -4,13 +4,13 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-section {
-  width: 100vw;
-  overflow: hidden; }
+body {
+  overflow-x: hidden; }
 
 .welcome {
   background-color: #000;
   height: 100vh;
+  max-width: 100%;
   width: 100vw;
   position: relative;
   overflow: hidden; }
@@ -41,6 +41,7 @@ section {
         -webkit-animation: blink 1s infinite;
         animation: blink 1s infinite; }
   .welcome .arrow {
+    cursor: pointer;
     position: absolute;
     top: 80%;
     left: 50%;
@@ -67,6 +68,7 @@ section {
       animation: arrowMove 2.5s infinite; }
 
 .mobileMenu {
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
@@ -96,13 +98,14 @@ section {
     .mobileMenu .pulldownMenu div.active {
       height: 20vh; }
   .mobileMenu .menuBar {
-    width: 100vw;
+    max-width: 100%;
     height: 46px;
     line-height: 46px;
     background-color: rgba(0, 0, 0, 0.92);
     color: lime;
     position: relative; }
     .mobileMenu .menuBar p {
+      width: 90%;
       font-family: "Courier", sans-serif;
       font-size: 15px;
       padding-left: 10px; }
@@ -239,6 +242,7 @@ h2.active {
 
 .about {
   width: 100vw;
+  max-width: 100%;
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -274,6 +278,7 @@ h2.active {
 
 .skills {
   width: 100vw;
+  max-width: 100%;
   min-height: 100vh;
   background-color: black; }
   .skills .wrap {
@@ -327,7 +332,8 @@ h2.active {
     text-transform: uppercase;
     height: 50px;
     line-height: 50px;
-    width: 100vw; }
+    width: 100vw;
+    max-width: 100%; }
   .skills h3.active {
     -webkit-animation: appear2 1s both;
     animation: appear2 1s both; }
@@ -401,8 +407,9 @@ h2.active {
     justify-content: space-between; }
     .contact .contactLinks div {
       width: 100vw;
+      max-width: 100%;
       text-align: center;
-      font-family: 'Courier', 'Raleway', sans-serif;
+      font-family: 'Courier', 'Raleway', sans-serif;
       padding: 10px 0 10px 0;
       font-size: 18px; }
       .contact .contactLinks div a {
@@ -539,3 +546,105 @@ h2.active {
 @keyframes blink {
   to {
     opacity: .0; } }
+
+@media (min-width: 600px) {
+  .about {
+    min-height: 60vh; }
+  .skills .wrap div {
+    width: 30vw;
+    height: 32vw; }
+  .skills .wrapLearning div {
+    width: 30vw;
+    height: 32vw; }
+  .contact .map {
+    width: 50vw; } }
+
+@media (min-width: 800px) {
+  .about {
+    min-height: 60vh; }
+  .skills .wrap div {
+    width: 21vw;
+    height: 23vw; }
+  .skills .wrapLearning div {
+    width: 21vw;
+    height: 23vw; }
+  .contact .map {
+    width: 40vw; } }
+
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 40px; }
+  .welcome .text p {
+    font-size: 30px;
+    padding-left: 40px; }
+  .welcome .arrow:hover i {
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s; }
+  .mobileMenu .menuBar p {
+    font-size: 25px; }
+  .mobileMenu .menuBar .hamburger {
+    display: none; }
+  .mobileMenu .pulldownMenu {
+    position: fixed;
+    top: 0;
+    right: 30px;
+    height: 46px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    z-index: 4;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 600px; }
+    .mobileMenu .pulldownMenu div {
+      height: 46px;
+      line-height: 46px; }
+    .mobileMenu .pulldownMenu div.active {
+      height: 46px; }
+    .mobileMenu .pulldownMenu div:hover {
+      color: black;
+      background-color: lime; }
+  .about {
+    min-height: 60vh; }
+    .about p {
+      font-size: 25px; }
+  .skills {
+    min-height: 50vh; }
+    .skills .wrap {
+      min-height: 40vh; }
+      .skills .wrap div {
+        width: 10vw;
+        height: 12vw; }
+    .skills .wrapLearning div {
+      width: 10vw;
+      height: 12vw; }
+    .skills h3 {
+      font-size: 30px; }
+    .skills p {
+      font-size: 25px; }
+  .contact .contactLinks {
+    padding-top: 84px;
+    width: 50vw;
+    float: left; }
+    .contact .contactLinks div {
+      font-size: 20px; }
+  .contact .map {
+    left: 75%;
+    height: 300px;
+    width: 290px; } }
+
+@media (min-width: 1280px) {
+  .skills {
+    min-height: 30vh; }
+    .skills .wrap {
+      min-height: 30vh; }
+      .skills .wrap div {
+        width: 200px;
+        height: 240px; }
+    .skills .wrapLearning div {
+      width: 200px;
+      height: 240px; }
+  .contact .map {
+    width: 300px; } }
