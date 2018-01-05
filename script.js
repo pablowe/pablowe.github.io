@@ -199,7 +199,7 @@
                 $(".pulldownMenu #contact").text("Kontakt");
                 // section about
                 $(".about h2").text("O mnie");
-                $(".about div:nth-of-type(2)").text("Nazywam się Paweł Wędrowski, mam 22 lata. Od kliku miesięcy uczę się technik front-endu. Szukam pracy/stażu/praktyk w Warszawie, bardzo szybko się uczę i chętnie poznaje nowe rzeczy. Poza doskonaleniem technik front-endowych uczę się backendu - aktualnie w Node.js. Prywatnie jestem zapalonym graczem - w przyszłości chciałbym pracować przy tworzeniu gier - oraz miłośnikiem aktywnego i zdrowegu trybu życia.");
+                $(".aboutText p").text("Nazywam się Paweł Wędrowski, mam 22 lata. Od kliku miesięcy uczę się technik front-endu. Szukam pracy/stażu/praktyk w Warszawie, bardzo szybko się uczę i chętnie poznaje nowe rzeczy. Poza doskonaleniem technik front-endowych uczę się backendu - aktualnie w Node.js. Prywatnie jestem zapalonym graczem - w przyszłości chciałbym pracować przy tworzeniu gier - oraz miłośnikiem aktywnego i zdrowegu trybu życia.");
                 // section skills
                 $(".skills h2").text("Umiejętności");
                 $(".skills h3").text("Dodatkowe umiejętności");

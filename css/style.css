@@ -573,7 +573,8 @@ h2.active {
 
 @media (min-width: 1024px) {
   h2 {
-    font-size: 40px; }
+    font-size: 40px;
+    padding: 20px 0 20px 0; }
   .welcome .text p {
     font-size: 30px;
     padding-left: 40px; }
@@ -608,9 +609,9 @@ h2.active {
       background-color: lime; }
   .about {
     min-height: 60vh; }
-    .about div {
-      font-size: 25px; }
-      .about div p {
+    .about .aboutText {
+      padding: 30px; }
+      .about .aboutText p {
         font-size: 25px; }
   .skills {
     min-height: 50vh; }
@@ -623,7 +624,8 @@ h2.active {
       width: 10vw;
       height: 12vw; }
     .skills h3 {
-      font-size: 30px; }
+      font-size: 30px;
+      padding: 20px 0 20px 0; }
     .skills p {
       font-size: 25px; }
   .contact .contactLinks {

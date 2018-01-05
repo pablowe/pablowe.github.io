@@ -553,6 +553,7 @@ $logoSize: 35vw;
     $logoSize: 10vw;
     h2{
         font-size: 40px;
+        padding: 20px 0 20px 0;
     }
     
     .welcome{
@@ -599,10 +600,10 @@ $logoSize: 35vw;
     }
     .about {
         min-height: 60vh;
-        div{
-            font-size: 25px;
+        .aboutText{
+            padding: 30px;
             p{
-                font-size: 25px;
+                font-size: 25px
             }
         }
     }
@@ -623,6 +624,7 @@ $logoSize: 35vw;
         }
         h3{
             font-size: 30px;
+            padding: 20px 0 20px 0;
         }
         p{
             font-size: 25px;
