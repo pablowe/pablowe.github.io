@@ -608,8 +608,10 @@ h2.active {
       background-color: lime; }
   .about {
     min-height: 60vh; }
-    .about div p {
+    .about div {
       font-size: 25px; }
+      .about div p {
+        font-size: 25px; }
   .skills {
     min-height: 50vh; }
     .skills .wrap {
