@@ -48,7 +48,7 @@
 
         function scrollH2Animation() {
             if(window.innerHeight>500){
-                if (window.scrollY > sectionAboutFromTop - sectionAboutHeight - 200) {
+                if (window.scrollY > sectionAboutFromTop - window.innerHeight/1.5) {
                 secAboutH2.classList.add("active");
                 }
             }
@@ -61,7 +61,7 @@
 
         function scrollAboutImgAnimation() {
             if(window.innerHeight>500){
-                if (window.scrollY > sectionAboutFromTop - sectionAboutHeight - 200) {
+                if (window.scrollY > sectionAboutFromTop - window.innerHeight/1.5) {
                 imgMe.classList.add("active");
                 }
                 else{
@@ -81,7 +81,7 @@
 
         function scrollSkillsH2Anim() {
             if(window.innerHeight>500){
-                if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight - 200) {
+                if (window.scrollY > sectionSkillsFromTop - window.innerHeight/1.5) {
                 secSkillsH2.classList.add("active");
                 }
             }
@@ -94,7 +94,7 @@
 
         function logoAnimation() {
             if(window.innerHeight>500){
-                if (window.scrollY > sectionSkillsFromTop - sectionSkillsHeight - 200) {
+                if (window.scrollY > sectionSkillsFromTop - window.innerHeight/1.5) {
                 let delay = 0;
                 skillLogos.forEach((skillLogo) => {
                     delay += 100;
@@ -121,7 +121,7 @@
 
         function scrollSkillsH3Anim() {
             if(window.innerHeight>500){
-                if (window.scrollY > skillsH3.offsetTop - sectionSkillsHeight - 200) {
+                if (window.scrollY > skillsH3.offsetTop - window.innerHeight/1.5) {
                 skillsH3.classList.add("active");
                 additionalSkillsP.classList.add("active");
             }
@@ -139,7 +139,7 @@
 
         function scrollLearningAnim() {
             if(window.innerHeight>500){
-                if (window.scrollY > skillsLearningH3.offsetTop - sectionSkillsHeight - 200) {
+                if (window.scrollY > skillsLearningH3.offsetTop - window.innerHeight/1.5) {
                 skillsLearningH3.classList.add("active");
                 learningLogos.forEach((learningLogo) => {
                     learningLogo.classList.add("active");
