@@ -599,8 +599,10 @@ $logoSize: 35vw;
     }
     .about {
         min-height: 60vh;
-        p{
-            font-size: 25px;
+        div{
+            p{
+                font-size: 25px;
+            }
         }
     }
     .skills {
