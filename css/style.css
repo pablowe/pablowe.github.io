@@ -232,7 +232,6 @@ h2 {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
-  height: 50px;
   line-height: 50px;
   width: 100vw; }
 
@@ -253,7 +252,7 @@ h2.active {
   flex-direction: column; }
   .about div {
     font-family: 'Raleway', sans-serif;
-    padding: 20px 10px 0 10px;
+    padding: 20px;
     position: relative; }
   .about .imgMe {
     border-radius: 50%;
@@ -333,14 +332,15 @@ h2.active {
     height: 50px;
     line-height: 50px;
     width: 100vw;
-    max-width: 100%; }
+    max-width: 100%;
+    padding-top: 15px; }
   .skills h3.active {
     -webkit-animation: appear2 1s both;
     animation: appear2 1s both; }
   .skills p {
     color: black;
     font-family: 'Raleway', sans-serif;
-    padding: 0 10px 0 10px;
+    padding: 0 20px 0 20px;
     -webkit-transition: 1s;
     -o-transition: 1s;
     transition: 1s; }
@@ -573,6 +573,7 @@ h2.active {
 
 @media (min-width: 1024px) {
   h2 {
+    padding: 20px 0 20px 0;
     font-size: 40px; }
   .welcome .text p {
     font-size: 30px;
@@ -612,7 +613,7 @@ h2.active {
   .about {
     min-height: 60vh; }
     .about .aboutText {
-      padding: 30px; }
+      padding: 30px 40px 30px 40px; }
       .about .aboutText p {
         font-size: 25px; }
   .skills {
@@ -628,17 +629,20 @@ h2.active {
     .skills h3 {
       font-size: 30px; }
     .skills p {
+      padding: 30px 40px 30px 40px;
       font-size: 25px; }
-  .contact .contactLinks {
-    padding-top: 84px;
-    width: 50vw;
-    float: left; }
-    .contact .contactLinks div {
-      font-size: 20px; }
-  .contact .map {
-    left: 75%;
-    height: 300px;
-    width: 290px; } }
+  .contact {
+    padding-top: 20px; }
+    .contact .contactLinks {
+      padding-top: 84px;
+      width: 50vw;
+      float: left; }
+      .contact .contactLinks div {
+        font-size: 20px; }
+    .contact .map {
+      left: 75%;
+      height: 300px;
+      width: 290px; } }
 
 @media (min-width: 1280px) {
   .skills {

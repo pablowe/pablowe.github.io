@@ -222,7 +222,6 @@ h2 {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    height: 50px;
     line-height: 50px;
     width: 100vw;
 }
@@ -239,7 +238,7 @@ h2.active {
     flex-direction: column;
     div {
         font-family: 'Raleway', sans-serif;
-        padding: 20px 10px 0 10px;
+        padding: 20px;
         position: relative;
     }
     .imgMe {
@@ -322,6 +321,7 @@ $logoSize: 35vw;
         line-height: 50px;
         width: 100vw;
         max-width: 100%;
+        padding-top: 15px;
     }
     h3.active {
         animation: appear2 1s both;
@@ -329,7 +329,7 @@ $logoSize: 35vw;
     p {
         color: black;
         font-family: 'Raleway', sans-serif;
-        padding: 0 10px 0 10px;
+        padding: 0 20px 0 20px;
         transition: 1s;
     }
     p.active {
@@ -552,6 +552,7 @@ $logoSize: 35vw;
 @media (min-width:1024px) {
     $logoSize: 10vw;
     h2{
+        padding: 20px 0 20px 0;
         font-size: 40px;
         
     }
@@ -603,7 +604,7 @@ $logoSize: 35vw;
     .about {
         min-height: 60vh;
         .aboutText{
-            padding: 30px;
+            padding: 30px 40px 30px 40px;
             p{
                 font-size: 25px
             }
@@ -629,10 +630,12 @@ $logoSize: 35vw;
             
         }
         p{
+            padding: 30px 40px 30px 40px;
             font-size: 25px;
         }
     }
     .contact {
+        padding-top: 20px;
         .contactLinks{
             padding-top: 84px;
             width: 50vw;
