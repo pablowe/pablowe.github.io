@@ -333,7 +333,7 @@ h2.active {
     line-height: 50px;
     width: 100vw;
     max-width: 100%;
-    padding-top: 15px; }
+    padding: 15px 0 15px 0; }
   .skills h3.active {
     -webkit-animation: appear2 1s both;
     animation: appear2 1s both; }
