@@ -629,18 +629,16 @@ h2.active {
     .skills p {
       padding: 30px 40px;
       font-size: 25px; }
-  .contact {
-    padding-top: 20px; }
-    .contact .contactLinks {
-      padding-top: 84px;
-      width: 50vw;
-      float: left; }
-      .contact .contactLinks div {
-        font-size: 20px; }
-    .contact .map {
-      left: 75%;
-      height: 300px;
-      width: 290px; } }
+  .contact .contactLinks {
+    padding-top: 84px;
+    width: 50vw;
+    float: left; }
+    .contact .contactLinks div {
+      font-size: 20px; }
+  .contact .map {
+    left: 75%;
+    height: 300px;
+    width: 290px; } }
 
 @media (min-width: 1280px) {
   .skills {
