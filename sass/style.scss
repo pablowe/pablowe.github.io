@@ -319,7 +319,7 @@ $logoSize: 35vw;
         text-transform: uppercase;
         width: 100vw;
         max-width: 100%;
-        padding: 15px 0 15px 0;
+        padding: 15px 0;
     }
     h3.active {
         animation: appear2 1s both;
@@ -327,7 +327,7 @@ $logoSize: 35vw;
     p {
         color: black;
         font-family: 'Raleway', sans-serif;
-        padding: 0 20px 0 20px;
+        padding: 0 20px;
         transition: 1s;
     }
     p.active {
@@ -389,7 +389,7 @@ $logoSize: 35vw;
             font-family: 'Courier',
             'Raleway',
             sans-serif;
-            padding: 10px 0 10px 0;
+            padding: 10px 0;
             font-size: 18px;
         }
     }
@@ -550,7 +550,7 @@ $logoSize: 35vw;
 @media (min-width:1024px) {
     $logoSize: 10vw;
     h2{
-        padding: 20px 0 20px 0;
+        padding: 20px 0;
         font-size: 40px;
         
     }
@@ -602,7 +602,7 @@ $logoSize: 35vw;
     .about {
         min-height: 60vh;
         .aboutText{
-            padding: 30px 40px 30px 40px;
+            padding: 30px 40px;
             p{
                 font-size: 25px
             }
@@ -628,7 +628,7 @@ $logoSize: 35vw;
             
         }
         p{
-            padding: 30px 40px 30px 40px;
+            padding: 30px 40px;
             font-size: 25px;
         }
     }
