@@ -527,7 +527,7 @@ h2.active {
   50% {
     width: 0; }
   100% {
-    width: 100; } }
+    width: 100%; } }
 
 @keyframes type2 {
   0% {
@@ -535,7 +535,7 @@ h2.active {
   50% {
     width: 0; }
   100% {
-    width: 100; } }
+    width: 100%; } }
 
 @-webkit-keyframes blink {
   to {
