@@ -224,7 +224,7 @@
                 $(".pulldownMenu #contact").text("contact details");
                 // section about
                 $(".about h2").text("about me");
-                $(".aboutText p").text("Hi everyone, my name is Pawel Wedrowski and I am 22 years old. Since four months I am developing my front-end skills. I am looking for a job or an internship in Warsaw. I enjoy learning new technologies and can assimilate with new ideas quickly. Apart from improving front-end skills I am getting familiar witch back end technologies - currently Node.js. I am a true game lover and in the future I want ot take part in creating them. Besides that, I run a healthy lifestyle and enjoy Netflix and chill.");
+                $(".aboutText p").text("Hi everyone, my name is Pawel Wedrowski and I am 22 years old. Since four months I am developing my front-end skills. I am looking for a job or an internship in Warsaw. I enjoy learning new technologies and can assimilate with new ideas quickly. Apart from improving front-end skills I am getting familiar with back end technologies - currently Node.js. I am a true game lover and in the future I want ot take part in creating them. Besides that, I run a healthy lifestyle and enjoy Netflix and chill.");
                 // section skills
                 $(".skills h2").text("My skills");
                 $(".skills h3").text("additional skills");
