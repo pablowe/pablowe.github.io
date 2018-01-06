@@ -569,6 +569,7 @@ $logoSize: 35vw;
     }
     .mobileMenu{
         .menuBar{
+            background-color: black;
             p{
                 font-size: 25px;
             }
@@ -588,6 +589,7 @@ $logoSize: 35vw;
             div{
                 height: 46px;
                 line-height: 46px;
+                background-color: black;
             }
             div.active{
                 height: 46px; 

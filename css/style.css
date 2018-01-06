@@ -580,10 +580,12 @@ h2.active {
   .welcome .arrow:hover i {
     -webkit-animation-duration: .5s;
     animation-duration: .5s; }
-  .mobileMenu .menuBar p {
-    font-size: 25px; }
-  .mobileMenu .menuBar .hamburger {
-    display: none; }
+  .mobileMenu .menuBar {
+    background-color: black; }
+    .mobileMenu .menuBar p {
+      font-size: 25px; }
+    .mobileMenu .menuBar .hamburger {
+      display: none; }
   .mobileMenu .pulldownMenu {
     position: fixed;
     top: 0;
@@ -600,7 +602,8 @@ h2.active {
     width: 600px; }
     .mobileMenu .pulldownMenu div {
       height: 46px;
-      line-height: 46px; }
+      line-height: 46px;
+      background-color: black; }
     .mobileMenu .pulldownMenu div.active {
       height: 46px; }
     .mobileMenu .pulldownMenu div:hover {
