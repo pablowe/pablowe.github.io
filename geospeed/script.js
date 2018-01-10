@@ -5,31 +5,31 @@ function geoFindMe() {
         output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
         return;
     }
+    var latitude;
+    var longitude;
+
+    var latitude2;
+    var longitude2;
+
+    var speed;
 
     function success(position) {
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-
-        var latitude2;
-        var longitude2;
-
-        var speed;
-
-        setInterval(function () {
-            setTimeout(function () {
-                latitude2 = position.coords.latitude;
-                longitude2 = position.coords.longitude;
-            }, 5000);
-            speed = Math.sqrt(((latitude - latitude2) ^ 2 + (longitude - longitude2) ^ 2) * 73 * 720);
-
-            console.log('1  ' + latitude);
-            console.log('1  ' + latitude2);
-
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        setTimeout(function () {
+            latitude2 = position.coords.latitude;
+            longitude2 = position.coords.longitude;
+            speed = Math.sqrt(((latitude - latitude2) ^ 2 + (longitude - longitude2) ^ 2) * 73 * 1800);
             output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>' + '<br>Speed is: ' + speed;
 
             latitude = latitude2;
             longitude = longitude2;
-        }, 6000);
+        }, 2000);
+
+
+
+        
+
 
     }
 
@@ -38,9 +38,9 @@ function geoFindMe() {
     }
 
     output.innerHTML = "<p>Locating…</p>";
-
-
-
-    navigator.geolocation.getCurrentPosition(success, error);
+    
+    setInterval(function(){
+        navigator.geolocation.getCurrentPosition(success, error);
+    }, 2000);
 
 }
