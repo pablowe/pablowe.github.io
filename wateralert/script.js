@@ -11,13 +11,13 @@
             if (!("Notification" in window)) {
                 alert("This web browser doesn't support notifications :(");
             } else if (Notification.permission === "granted") {
-                spawnNotification('Remember to drink water every 15 mins!', 'img/logo-small', 'WATER alert');
+                spawnNotification('Remember to drink water every 15 mins!', 'img/logo-small.jpg', 'WATER alert');
                 alert.play();
 
             } else if (Notification.permission !== 'denied') {
                 Notification.requestPermission(function(permission) {
                     if (permission === "granted") {
-                        spawnNotification('Remember to drink water every 15 mins!', 'img/logo-small', 'WATER alert');
+                        spawnNotification('Remember to drink water every 15 mins!', 'img/logo-small.jpg', 'WATER alert');
                         alert.play();
                     }
                 });
