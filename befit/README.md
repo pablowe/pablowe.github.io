@@ -9,13 +9,23 @@ npm install
 npm run dev
 ```
 
-## Build and deploy
+## Deploy to pablowe.github.io/befit
+
+1. Keep this application's source files in the repository's `/befit` directory.
+2. Upload `deploy-pages.yml` to the repository at `.github/workflows/deploy-pages.yml` (the workflow must be at the repository root, not inside `/befit`).
+3. Open the repository's **Settings → Pages**.
+4. Under **Build and deployment → Source**, select **GitHub Actions**.
+5. Open **Actions → Deploy site to GitHub Pages → Run workflow**, or push another change to `master`.
+
+The workflow preserves the existing website and publishes the built app at:
+
+`https://pablowe.github.io/befit/`
+
+To verify the production build locally:
 
 ```bash
 npm run build
 ```
-
-Deploy the generated `dist` directory to GitHub Pages, Netlify, or any static host.
 
 ## Moving your data
 
