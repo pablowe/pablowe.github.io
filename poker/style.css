@@ -20,16 +20,42 @@ body {
     padding: 16px 24px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     flex-wrap: wrap;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
 }
 
 .app-header h1 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: #ffd700;
     letter-spacing: 1px;
 }
 
+.header-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.info-chip {
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: #14532d;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid #2a6b45;
+}
+
+.street-chip {
+    background: #1a4d31;
+    color: #ffd700;
+    border-color: #ffd700;
+}
+
 .pot-display {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
     background: #14532d;
     padding: 8px 16px;
@@ -38,7 +64,7 @@ body {
 }
 
 main {
-    max-width: 900px;
+    max-width: 960px;
     margin: 24px auto;
     padding: 0 16px;
     display: grid;
@@ -58,6 +84,76 @@ main {
     font-size: 1.1rem;
     border-bottom: 1px solid #1e5c3b;
     padding-bottom: 8px;
+}
+
+.card h3 {
+    margin: 14px 0 10px;
+    color: #cde8da;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card h3:first-child {
+    margin-top: 0;
+}
+
+.hint {
+    color: #a9c9b8;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+}
+
+/* ---------- Foldable sections ---------- */
+details.foldable {
+    padding: 0;
+    overflow: hidden;
+}
+
+details.foldable summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 16px 20px;
+    color: #ffd700;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+}
+
+details.foldable summary::-webkit-details-marker {
+    display: none;
+}
+
+details.foldable summary::after {
+    content: '▸';
+    color: #a9c9b8;
+    transition: transform 0.15s ease;
+    font-size: 0.9rem;
+}
+
+details.foldable[open] summary::after {
+    transform: rotate(90deg);
+}
+
+details.foldable summary:hover {
+    background: #16472e;
+}
+
+details.foldable .card-body {
+    padding: 0 20px 20px;
+    border-top: 1px solid #1e5c3b;
+    padding-top: 16px;
+}
+
+.main-section {
+    border: 1px solid #1e5c3b;
+}
+
+.main-section.hidden {
+    display: none;
 }
 
 .add-player-form {
@@ -121,6 +217,7 @@ button.danger {
     gap: 16px;
     flex-wrap: wrap;
     align-items: center;
+    margin-bottom: 6px;
 }
 
 .game-settings label {
@@ -195,6 +292,16 @@ button.danger {
     color: #0a2c1b;
 }
 
+.badge.sb {
+    background: #4a90e2;
+    color: #fff;
+}
+
+.badge.bb {
+    background: #e2874a;
+    color: #fff;
+}
+
 .badge.turn {
     background: #4a90e2;
     color: #fff;
@@ -205,6 +312,147 @@ button.danger {
     color: #e88;
     padding: 4px 8px;
     font-size: 0.8rem;
+}
+
+/* ---------- Table view ---------- */
+.poker-table-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.poker-table {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    aspect-ratio: 16 / 10;
+    background: radial-gradient(ellipse at center, #1b6b3f 0%, #0f4a2a 70%, #0a3620 100%);
+    border: 10px solid #5a3a1e;
+    border-radius: 50% / 45%;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5), 0 6px 16px rgba(0, 0, 0, 0.4);
+    margin: 10px auto 30px;
+}
+
+.table-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffd700;
+}
+
+.pot-label {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #cde8da;
+}
+
+.pot-value {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.side-pots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+    margin-top: 6px;
+    max-width: 220px;
+}
+
+.side-pot-chip {
+    font-size: 0.65rem;
+    background: #14532d;
+    border: 1px solid #ffd700;
+    border-radius: 12px;
+    padding: 2px 8px;
+    color: #fff;
+}
+
+.side-pot-chip.awarded {
+    opacity: 0.4;
+    text-decoration: line-through;
+}
+
+.seat {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: #0d3b24;
+    border: 2px solid #2a6b45;
+    border-radius: 10px;
+    padding: 8px 10px;
+    min-width: 110px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+
+.seat.active-turn {
+    border-color: #ffd700;
+    background: #1a4d31;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.4), 0 2px 10px rgba(0, 0, 0, 0.4);
+    animation: pulseTurn 1.4s infinite;
+}
+
+@keyframes pulseTurn {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.35); }
+    50% { box-shadow: 0 0 0 6px rgba(255, 215, 0, 0.15); }
+}
+
+.seat.folded {
+    opacity: 0.45;
+}
+
+.seat.busted {
+    opacity: 0.3;
+    text-decoration: line-through;
+}
+
+.seat.allin {
+    border-color: #9b2fae;
+}
+
+.seat-badges {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin-bottom: 4px;
+    min-height: 18px;
+}
+
+.seat-name {
+    font-weight: bold;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.seat-stack {
+    font-size: 0.75rem;
+    color: #a9c9b8;
+}
+
+.seat-bet {
+    margin-top: 4px;
+    font-size: 0.75rem;
+    background: #ffd700;
+    color: #0a2c1b;
+    border-radius: 10px;
+    padding: 2px 8px;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.seat-tag {
+    margin-top: 4px;
+    font-size: 0.65rem;
+    color: #e88;
+    text-transform: uppercase;
+}
+
+.seat-tag.allin-tag {
+    color: #d59be6;
 }
 
 .turn-indicator {
@@ -248,6 +496,65 @@ button.danger {
     color: #fff;
 }
 
+.quick-amounts {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    font-size: 0.8rem;
+    color: #a9c9b8;
+}
+
+.quick {
+    background: #1e5c3b;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+}
+
+/* ---------- Showdown ---------- */
+.pot-award-box {
+    background: #0d3b24;
+    border: 1px solid #2a6b45;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+}
+
+.pot-award-box h3 {
+    color: #ffd700;
+    margin: 0 0 10px;
+    text-transform: none;
+}
+
+.winner-checklist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.winner-option {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #123d26;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.winner-option input {
+    width: auto;
+}
+
+.award-btn {
+    background: #2fa84f;
+    color: #fff;
+}
+
 .log-list {
     list-style: none;
     max-height: 220px;
@@ -269,5 +576,19 @@ button.danger {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
+    }
+
+    .poker-table {
+        aspect-ratio: 3 / 4;
+        border-radius: 40px;
+    }
+
+    .seat {
+        min-width: 90px;
+        padding: 6px 8px;
+    }
+
+    .seat-name {
+        font-size: 0.75rem;
     }
 }

@@ -3,48 +3,64 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Poker Chips</title>
+    <title>Texas Hold'em Chips</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header class="app-header">
-        <h1>Poker Chips</h1>
-        <div class="pot-display">
-            Pot: <span id="potAmount">0</span>
+        <h1>Texas Hold'em Chips</h1>
+        <div class="header-info">
+            <div class="info-chip">Hand <span id="handNumber">0</span></div>
+            <div class="info-chip street-chip" id="streetChip">Waiting</div>
+            <div class="pot-display">Pot: <span id="potAmount">0</span></div>
         </div>
     </header>
 
     <main>
-        <section id="setupSection" class="card">
-            <h2>Add Player</h2>
-            <form id="addPlayerForm" class="add-player-form">
-                <input type="text" id="playerName" placeholder="Player name" required>
-                <input type="number" id="playerStack" placeholder="Starting stack" value="1000" min="1" required>
-                <button type="submit">Add Player</button>
-            </form>
+        <details id="setupSection" class="card foldable" open>
+            <summary>Setup &amp; Players</summary>
+            <div class="card-body">
+                <h3>Add Player</h3>
+                <form id="addPlayerForm" class="add-player-form">
+                    <input type="text" id="playerName" placeholder="Player name" required>
+                    <input type="number" id="playerStack" placeholder="Starting stack" value="1000" min="1" required>
+                    <button type="submit">Add Player</button>
+                </form>
 
-            <div class="game-settings">
-                <label>
-                    Small Blind
-                    <input type="number" id="smallBlind" value="5" min="0">
-                </label>
-                <label>
-                    Big Blind
-                    <input type="number" id="bigBlind" value="10" min="0">
-                </label>
-                <button id="startHandBtn" type="button">Start / Next Hand</button>
-                <button id="resetGameBtn" type="button" class="danger">Reset Game</button>
+                <div class="game-settings">
+                    <label>
+                        Small Blind
+                        <input type="number" id="smallBlind" value="5" min="0">
+                    </label>
+                    <label>
+                        Big Blind
+                        <input type="number" id="bigBlind" value="10" min="0">
+                    </label>
+                    <button id="startHandBtn" type="button">Start / Next Hand</button>
+                    <button id="resetGameBtn" type="button" class="danger">Reset Game</button>
+                </div>
+
+                <h3>Players</h3>
+                <ul id="playersList" class="players-list"></ul>
+            </div>
+        </details>
+
+        <section id="tableSection" class="card main-section">
+            <h2>Table</h2>
+            <div class="poker-table-wrap">
+                <div class="poker-table" id="pokerTable">
+                    <div class="table-center">
+                        <div class="pot-label">POT</div>
+                        <div class="pot-value" id="tablePotAmount">0</div>
+                        <div class="side-pots" id="sidePotsInline"></div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="playersSection" class="card">
-            <h2>Players</h2>
-            <ul id="playersList" class="players-list"></ul>
-        </section>
-
-        <section id="actionsSection" class="card">
+        <section id="actionsSection" class="card main-section">
             <h2>Actions</h2>
             <p id="turnIndicator" class="turn-indicator">No active hand.</p>
 
@@ -56,12 +72,26 @@
                 <input type="number" id="betAmount" placeholder="Amount" min="1">
                 <button id="allInBtn" class="action allin">All-In</button>
             </div>
+            <div class="quick-amounts">
+                <span>Quick fill:</span>
+                <button id="quickMinRaise" type="button" class="quick">Min Raise</button>
+                <button id="quickHalfPot" type="button" class="quick">1/2 Pot</button>
+                <button id="quickPot" type="button" class="quick">Pot</button>
+            </div>
         </section>
 
-        <section id="logSection" class="card">
-            <h2>Hand Log</h2>
-            <ul id="logList" class="log-list"></ul>
+        <section id="showdownSection" class="card main-section hidden">
+            <h2>Showdown &mdash; Award Pot(s)</h2>
+            <p class="hint">Reveal cards at the table, then mark the winner(s) for each pot below.</p>
+            <div id="potsToAward"></div>
         </section>
+
+        <details id="logSection" class="card foldable">
+            <summary>Hand Log</summary>
+            <div class="card-body">
+                <ul id="logList" class="log-list"></ul>
+            </div>
+        </details>
     </main>
 
     <script src="script.js"></script>
