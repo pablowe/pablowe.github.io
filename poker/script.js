@@ -1,15 +1,83 @@
-// Texas Hold'em Chips - a virtual chip tracker / companion app for a live game.
-// Handles: adding players, blind rotation, full betting rounds (preflop, flop,
-// turn, river), player actions (fold, check, call, bet/raise, all-in),
-// side-pot calculation for all-in situations, and a table view.
-// NOTE: this app does not deal or evaluate cards - it is a chip/action tracker
-// meant to be used alongside a physical (or other) deck of cards. At showdown
-// you manually pick the winner(s) of each pot.
+// Texas Hold'em Chips - a virtual Texas Hold'em table for a live game.
+// Handles: adding players, blind rotation, a full betting round on every
+// street (pre-flop, flop, turn, river), dealing hole cards and the
+// community board (with proper burn cards), player actions (fold, check,
+// call, bet/raise, all-in), side-pot calculation for all-in situations,
+// a table view, and revealing hands at showdown.
+// At showdown, remaining players' hole cards are revealed on screen; you
+// pick the winner(s) of each pot (main + any side pots).
 
 (function () {
     'use strict';
 
     const STREETS = ['preflop', 'flop', 'turn', 'river'];
+
+    // ---------- Deck / cards ----------
+    const RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+    const SUITS = [
+        { symbol: '♠', color: 'black' },
+        { symbol: '♥', color: 'red' },
+        { symbol: '♦', color: 'red' },
+        { symbol: '♣', color: 'black' },
+    ];
+
+    function buildDeck() {
+        const deck = [];
+        RANKS.forEach(rank => {
+            SUITS.forEach(suit => {
+                deck.push({ rank, suit: suit.symbol, color: suit.color });
+            });
+        });
+        return deck;
+    }
+
+    function shuffle(deck) {
+        for (let i = deck.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+        return deck;
+    }
+
+    function drawCard() {
+        return state.deck.pop();
+    }
+
+    // Deals community cards for the given street, including the standard
+    // burn card before each street is dealt.
+    function dealStreetCards(street) {
+        if (street === 'flop') {
+            drawCard(); // burn
+            for (let i = 0; i < 3; i++) state.communityCards.push(drawCard());
+        } else if (street === 'turn' || street === 'river') {
+            drawCard(); // burn
+            state.communityCards.push(drawCard());
+        }
+    }
+
+    function dealHoleCards() {
+        state.players.forEach(p => { p.holeCards = []; });
+        const order = [];
+        const n = state.players.length;
+        if (n === 0) return;
+        for (let i = 1; i <= n; i++) {
+            const idx = (state.dealerIndex + i) % n;
+            const p = state.players[idx];
+            if (!p.busted) order.push(p);
+        }
+        for (let round = 0; round < 2; round++) {
+            order.forEach(p => { p.holeCards.push(drawCard()); });
+        }
+    }
+
+    function cardHtml(card, faceDown) {
+        if (faceDown || !card) return '<span class="card card-back">🂠</span>';
+        return `<span class="card card-${card.color}"><span class="card-rank">${card.rank}</span><span class="card-suit">${card.suit}</span></span>`;
+    }
+
+    function cardText(card) {
+        return `${card.rank}${card.suit}`;
+    }
 
     function streetLabel(s) {
         switch (s) {
@@ -23,7 +91,7 @@
     }
 
     const state = {
-        players: [], // { id, name, stack, bet, totalContributed, folded, allIn, busted }
+        players: [], // { id, name, stack, bet, totalContributed, folded, allIn, busted, holeCards }
         pot: 0,
         dealerIndex: -1,
         sbIndex: -1,
@@ -41,6 +109,8 @@
         handNumber: 0,
         sidePots: [], // [{ id, amount, eligiblePlayerIds, awarded }]
         awaitingShowdown: false,
+        deck: [],
+        communityCards: [],
     };
 
     // ---------- DOM references ----------
@@ -51,6 +121,7 @@
         tablePotAmount: document.getElementById('tablePotAmount'),
         sidePotsInline: document.getElementById('sidePotsInline'),
         pokerTable: document.getElementById('pokerTable'),
+        communityCards: document.getElementById('communityCards'),
         setupSection: document.getElementById('setupSection'),
         addPlayerForm: document.getElementById('addPlayerForm'),
         playerName: document.getElementById('playerName'),
@@ -148,6 +219,7 @@
         el.tablePotAmount.textContent = state.pot;
 
         renderSidePotsInline();
+        renderCommunityCards();
         renderTable();
         renderPlayersList();
         renderTurnAndActions();
@@ -166,6 +238,20 @@
                 span.textContent = `${i === 0 ? 'Main' : 'Side ' + i}: ${pot.amount}`;
                 el.sidePotsInline.appendChild(span);
             });
+        }
+    }
+
+    function renderCommunityCards() {
+        if (!el.communityCards) return;
+        el.communityCards.innerHTML = '';
+        if (!state.handActive && !state.awaitingShowdown) return;
+        const totalSlots = 5;
+        for (let i = 0; i < totalSlots; i++) {
+            const card = state.communityCards[i];
+            const slot = document.createElement('span');
+            slot.className = 'card-slot' + (card ? '' : ' empty-slot');
+            slot.innerHTML = card ? cardHtml(card, false) : '';
+            el.communityCards.appendChild(slot);
         }
     }
 
@@ -208,6 +294,14 @@
             stackEl.className = 'seat-stack';
             stackEl.textContent = p.busted ? 'Busted' : `${p.stack} chips`;
             seat.appendChild(stackEl);
+
+            if (p.holeCards && p.holeCards.length && !p.busted) {
+                const holeEl = document.createElement('div');
+                holeEl.className = 'seat-hole-cards';
+                const showFace = p.folded ? false : (state.awaitingShowdown || !state.handActive);
+                holeEl.innerHTML = p.holeCards.map(c => cardHtml(c, !showFace)).join('');
+                seat.appendChild(holeEl);
+            }
 
             if (p.bet > 0) {
                 const betEl = document.createElement('div');
@@ -378,6 +472,7 @@
             folded: false,
             allIn: false,
             busted: false,
+            holeCards: [],
         });
         log(`${name} joined the table with ${stack} chips.`);
         render();
@@ -408,6 +503,8 @@
         state.handNumber = 0;
         state.sidePots = [];
         state.awaitingShowdown = false;
+        state.deck = [];
+        state.communityCards = [];
         el.logList.innerHTML = '';
         el.setupSection.open = true;
         el.logSection.open = false;
@@ -443,6 +540,7 @@
         state.awaitingShowdown = false;
         state.street = 'preflop';
         state.handNumber += 1;
+        state.communityCards = [];
 
         // move dealer button to next non-busted player
         state.dealerIndex = findNextIndex(state.dealerIndex, p => !p.busted);
@@ -450,6 +548,10 @@
             alert('Not enough players to start a hand.');
             return;
         }
+
+        // shuffle a fresh deck and deal two hole cards to every player in the hand
+        state.deck = shuffle(buildDeck());
+        dealHoleCards();
 
         const active = contenders();
         if (active.length === 2) {
@@ -558,7 +660,8 @@
             return;
         }
         state.street = STREETS[idx + 1];
-        log(`--- ${streetLabel(state.street)} ---`);
+        dealStreetCards(state.street);
+        log(`--- ${streetLabel(state.street)} dealt: ${state.communityCards.map(cardText).join(' ')} ---`);
 
         const first = findNextIndex(state.dealerIndex, p => !p.busted && !p.folded && !p.allIn);
         if (first === -1) {
@@ -576,7 +679,8 @@
         while (idx < STREETS.length - 1) {
             idx += 1;
             state.street = STREETS[idx];
-            log(`--- ${streetLabel(state.street)} (no further betting possible) ---`);
+            dealStreetCards(state.street);
+            log(`--- ${streetLabel(state.street)} dealt: ${state.communityCards.map(cardText).join(' ')} (no further betting possible) ---`);
         }
         goToShowdown();
     }
@@ -593,6 +697,11 @@
             return;
         }
 
+        contenders().forEach(p => {
+            if (p.holeCards && p.holeCards.length) {
+                log(`${p.name} shows: ${p.holeCards.map(cardText).join(' ')}`);
+            }
+        });
         log(`--- Showdown --- Select the winner(s) for ${state.sidePots.length > 1 ? 'each pot' : 'the pot'} below.`);
         render();
     }

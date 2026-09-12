@@ -342,6 +342,85 @@ button.danger {
     color: #ffd700;
 }
 
+.community-cards {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.card-slot {
+    display: inline-flex;
+    width: 30px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-slot.empty-slot {
+    border: 1px dashed rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+}
+
+.card {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 42px;
+    background: #fff;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.7rem;
+    line-height: 1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.card.card-black {
+    color: #111;
+}
+
+.card.card-red {
+    color: #c62828;
+}
+
+.card.card-back {
+    background: linear-gradient(135deg, #2a3f8f, #1a2a63);
+    color: transparent;
+    border: 1px solid #4a5fb0;
+    font-size: 0;
+}
+
+.card-rank {
+    font-size: 0.8rem;
+}
+
+.card-suit {
+    font-size: 0.85rem;
+}
+
+.seat-hole-cards {
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+    margin-top: 4px;
+}
+
+.seat-hole-cards .card {
+    width: 22px;
+    height: 32px;
+    font-size: 0.55rem;
+}
+
+.seat-hole-cards .card-rank {
+    font-size: 0.6rem;
+}
+
+.seat-hole-cards .card-suit {
+    font-size: 0.62rem;
+}
+
 .pot-label {
     font-size: 0.75rem;
     letter-spacing: 1px;
