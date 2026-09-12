@@ -1,101 +1,181 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Texas Hold'em Chips</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071612">
+  <meta name="description" content="A complete chip-free poker game companion for live Texas Hold'em games.">
+  <title>Riverbank Poker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header class="app-header">
-        <h1>Texas Hold'em Chips</h1>
-        <div class="header-info">
-            <div class="info-chip">Hand <span id="handNumber">0</span></div>
-            <div class="info-chip street-chip" id="streetChip">Waiting</div>
-            <div class="pot-display">Pot: <span id="potAmount">0</span></div>
-        </div>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <div id="setupView" class="setup-view">
+    <header class="landing-header">
+      <a class="brand" href="#" aria-label="Riverbank Poker home">
+        <span class="brand-mark">R</span>
+        <span><strong>RIVERBANK</strong><small>POKER COMPANION</small></span>
+      </a>
+      <span class="offline-pill"><i></i> Works offline</span>
     </header>
 
-    <main>
-        <details id="setupSection" class="card foldable" open>
-            <summary>Setup &amp; Players</summary>
-            <div class="card-body">
-                <h3>Add Player</h3>
-                <form id="addPlayerForm" class="add-player-form">
-                    <input type="text" id="playerName" placeholder="Player name" required>
-                    <input type="number" id="playerStack" placeholder="Starting stack" value="1000" min="1" required>
-                    <button type="submit">Add Player</button>
-                </form>
+    <main class="setup-shell">
+      <section class="setup-copy">
+        <p class="eyebrow">LEAVE THE CHIP CASE AT HOME</p>
+        <h1>Your poker night,<br><em>beautifully accounted.</em></h1>
+        <p class="lead">Track every stack, bet, side pot and winner from one screen. You bring the cards. We’ll run the table.</p>
+        <div class="feature-row">
+          <span>Automatic side pots</span>
+          <span>Buy-ins &amp; cash-outs</span>
+          <span>Full hand history</span>
+        </div>
+      </section>
 
-                <div class="game-settings">
-                    <label>
-                        Small Blind
-                        <input type="number" id="smallBlind" value="5" min="0">
-                    </label>
-                    <label>
-                        Big Blind
-                        <input type="number" id="bigBlind" value="10" min="0">
-                    </label>
-                    <button id="startHandBtn" type="button">Start / Next Hand</button>
-                    <button id="resetGameBtn" type="button" class="danger">Reset Game</button>
-                </div>
+      <section class="setup-card">
+        <div class="setup-card-head">
+          <div><span class="step-label">NEW SESSION</span><h2>Set the table</h2></div>
+          <button id="resumeBtn" class="text-button hidden" type="button">Resume saved game</button>
+        </div>
+        <form id="setupForm">
+          <div class="field-grid">
+            <label class="field span-2"><span>Game name</span><input id="gameName" value="Friday Night Hold’em" maxlength="36" autocomplete="off"></label>
+            <label class="field"><span>Small blind</span><div class="input-prefix"><b>$</b><input id="setupSmallBlind" type="number" value="5" min="1" step="1" inputmode="numeric"></div></label>
+            <label class="field"><span>Big blind</span><div class="input-prefix"><b>$</b><input id="setupBigBlind" type="number" value="10" min="2" step="1" inputmode="numeric"></div></label>
+            <label class="field span-2"><span>Default buy-in</span><div class="input-prefix"><b>$</b><input id="defaultBuyIn" type="number" value="500" min="1" step="1" inputmode="numeric"></div></label>
+          </div>
 
-                <h3>Players</h3>
-                <ul id="playersList" class="players-list"></ul>
+          <div class="players-heading"><div><span>Players</span><small>2–9 seats</small></div><button id="addSetupPlayer" class="add-seat" type="button">+ Add seat</button></div>
+          <div id="setupPlayers" class="setup-players"></div>
+          <button class="primary start-game" type="submit"><span>Start the game</span><span aria-hidden="true">→</span></button>
+          <p id="setupError" class="form-error" role="alert"></p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <div id="gameView" class="game-view hidden">
+    <header class="game-header">
+      <div class="brand compact"><span class="brand-mark">R</span><span><strong>RIVERBANK</strong><small id="headerGameName">POKER</small></span></div>
+      <div class="hand-status">
+        <span id="handLabel">READY</span>
+        <strong id="streetLabel">Start a hand</strong>
+      </div>
+      <div class="header-actions">
+        <button id="undoBtn" class="icon-button" type="button" title="Undo last action" aria-label="Undo last action">↶</button>
+        <button id="openMenuBtn" class="icon-button" type="button" title="Game menu" aria-label="Open game menu">•••</button>
+      </div>
+    </header>
+
+    <main class="game-layout">
+      <section class="table-panel">
+        <div class="table-stage">
+          <div id="pokerTable" class="poker-table">
+            <div class="felt-grain"></div>
+            <div class="table-center">
+              <p class="pot-kicker">TOTAL POT</p>
+              <div id="potValue" class="pot-value">$0</div>
+              <div id="potBreakdown" class="pot-breakdown"></div>
+              <div id="roundGuide" class="round-guide">Settle in and start the first hand</div>
             </div>
-        </details>
+          </div>
+        </div>
+      </section>
 
-        <section id="tableSection" class="card main-section">
-            <h2>Table</h2>
-            <div class="poker-table-wrap">
-                <div class="poker-table" id="pokerTable">
-                    <div class="table-center">
-                        <div class="community-cards" id="communityCards"></div>
-                        <div class="pot-label">POT</div>
-                        <div class="pot-value" id="tablePotAmount">0</div>
-                        <div class="side-pots" id="sidePotsInline"></div>
-                    </div>
-                </div>
+      <aside class="control-panel">
+        <div class="control-top">
+          <div><p class="eyebrow">ACTION</p><h2 id="actionTitle">Table ready</h2></div>
+          <span id="actionStack" class="stack-pill">—</span>
+        </div>
+
+        <div id="idleControls" class="idle-controls">
+          <div class="ready-art"><span>♠</span><span>♥</span><span>♣</span></div>
+          <h3>Ready for the next hand?</h3>
+          <p>The dealer button and blinds rotate automatically.</p>
+          <button id="startHandBtn" class="primary" type="button">Deal next hand <span>→</span></button>
+        </div>
+
+        <div id="actionControls" class="action-controls hidden">
+          <div id="callout" class="callout"><span>TO CALL</span><strong>$0</strong></div>
+          <div class="action-grid">
+            <button id="foldBtn" class="action fold" type="button"><small>Get out</small><strong>Fold</strong></button>
+            <button id="checkCallBtn" class="action check" type="button"><small>Stay in</small><strong>Check</strong></button>
+          </div>
+          <div class="raise-box">
+            <div class="raise-head"><label for="raiseAmount">Raise to</label><strong id="raiseDisplay">$0</strong></div>
+            <input id="raiseAmount" type="range" min="0" max="100" value="0">
+            <div class="quick-bets">
+              <button data-bet="min" type="button">Min</button>
+              <button data-bet="half" type="button">½ pot</button>
+              <button data-bet="pot" type="button">Pot</button>
+              <button data-bet="all" type="button">All-in</button>
             </div>
-        </section>
+            <button id="raiseBtn" class="primary raise-button" type="button">Bet <span id="raiseButtonValue">$0</span></button>
+          </div>
+          <p class="action-hint">Pass the device to the highlighted player.</p>
+        </div>
 
-        <section id="actionsSection" class="card main-section">
-            <h2>Actions</h2>
-            <p id="turnIndicator" class="turn-indicator">No active hand.</p>
+        <div id="showdownControls" class="showdown-controls hidden">
+          <div class="showdown-icon">♛</div>
+          <h3>Showdown</h3>
+          <p>Select the winner or tied winners for each pot.</p>
+          <div id="showdownPots"></div>
+        </div>
 
-            <div class="action-buttons">
-                <button id="foldBtn" class="action fold">Fold</button>
-                <button id="checkBtn" class="action check">Check</button>
-                <button id="callBtn" class="action call">Call</button>
-                <button id="betRaiseBtn" class="action raise">Bet / Raise</button>
-                <input type="number" id="betAmount" placeholder="Amount" min="1">
-                <button id="allInBtn" class="action allin">All-In</button>
-            </div>
-            <div class="quick-amounts">
-                <span>Quick fill:</span>
-                <button id="quickMinRaise" type="button" class="quick">Min Raise</button>
-                <button id="quickHalfPot" type="button" class="quick">1/2 Pot</button>
-                <button id="quickPot" type="button" class="quick">Pot</button>
-            </div>
-        </section>
-
-        <section id="showdownSection" class="card main-section hidden">
-            <h2>Showdown &mdash; Award Pot(s)</h2>
-            <p class="hint">Hole cards are revealed on the table above. Compare hands with the community cards, then mark the winner(s) for each pot below.</p>
-            <div id="potsToAward"></div>
-        </section>
-
-        <details id="logSection" class="card foldable">
-            <summary>Hand Log</summary>
-            <div class="card-body">
-                <ul id="logList" class="log-list"></ul>
-            </div>
-        </details>
+        <div class="panel-footer">
+          <button id="playersBtn" class="footer-tab active" type="button"><span>♙</span> Players</button>
+          <button id="ledgerBtn" class="footer-tab" type="button"><span>≡</span> Ledger</button>
+        </div>
+      </aside>
     </main>
 
-    <script src="script.js"></script>
-</body>
+    <section id="rosterDrawer" class="bottom-drawer">
+      <div class="drawer-head"><div><p class="eyebrow">TABLE</p><h2>Players &amp; stacks</h2></div><button id="addPlayerBtn" class="secondary" type="button">+ Add player</button></div>
+      <div id="playerRoster" class="player-roster"></div>
+    </section>
 
+    <section id="ledgerDrawer" class="bottom-drawer hidden">
+      <div class="drawer-head"><div><p class="eyebrow">SESSION</p><h2>Game ledger</h2></div><div id="sessionBalance" class="balance-check">Balanced</div></div>
+      <div id="ledgerStats" class="ledger-stats"></div>
+      <div class="history-wrap"><h3>Hand history</h3><div id="handHistory" class="hand-history"></div></div>
+    </section>
+  </div>
+
+  <div id="menuOverlay" class="overlay hidden">
+    <div class="menu-popover">
+      <div class="modal-head"><div><p class="eyebrow">GAME MENU</p><h2 id="menuGameName">Session</h2></div><button class="modal-close" data-close="menuOverlay" type="button">×</button></div>
+      <button id="menuAddPlayer" class="menu-row" type="button"><span>Add a player</span><b>＋</b></button>
+      <button id="menuHistory" class="menu-row" type="button"><span>Open game ledger</span><b>→</b></button>
+      <button id="endGameBtn" class="menu-row danger-row" type="button"><span>End game &amp; cash out</span><b>→</b></button>
+      <button id="newGameBtn" class="menu-row muted-row" type="button"><span>Discard session</span><b>×</b></button>
+    </div>
+  </div>
+
+  <div id="playerModal" class="overlay hidden">
+    <form id="playerForm" class="modal">
+      <div class="modal-head"><div><p id="playerModalLabel" class="eyebrow">PLAYER</p><h2 id="playerModalTitle">Add player</h2></div><button class="modal-close" data-close="playerModal" type="button">×</button></div>
+      <input id="playerEditId" type="hidden">
+      <label class="field"><span>Name</span><input id="modalPlayerName" maxlength="20" required autocomplete="off"></label>
+      <label class="field"><span id="amountLabel">Buy-in amount</span><div class="input-prefix"><b>$</b><input id="modalAmount" type="number" min="1" required inputmode="numeric"></div></label>
+      <p id="playerModalHelp" class="modal-help">Their full buy-in is added to their digital stack.</p>
+      <button class="primary" type="submit">Confirm</button>
+    </form>
+  </div>
+
+  <div id="cashoutModal" class="overlay hidden">
+    <div class="modal wide-modal">
+      <div class="modal-head"><div><p class="eyebrow">FINAL LEDGER</p><h2>Settle the table</h2></div><button class="modal-close" data-close="cashoutModal" type="button">×</button></div>
+      <p class="modal-help">The amount shown is still due now. Prior cash-outs are included when calculating each player’s final result.</p>
+      <div id="cashoutList" class="cashout-list"></div>
+      <button id="finishSessionBtn" class="primary" type="button">Finish session</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
 </html>
