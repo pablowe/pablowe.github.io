@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Poker Chips</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="app-header">
+        <h1>Poker Chips</h1>
+        <div class="pot-display">
+            Pot: <span id="potAmount">0</span>
+        </div>
+    </header>
+
+    <main>
+        <section id="setupSection" class="card">
+            <h2>Add Player</h2>
+            <form id="addPlayerForm" class="add-player-form">
+                <input type="text" id="playerName" placeholder="Player name" required>
+                <input type="number" id="playerStack" placeholder="Starting stack" value="1000" min="1" required>
+                <button type="submit">Add Player</button>
+            </form>
+
+            <div class="game-settings">
+                <label>
+                    Small Blind
+                    <input type="number" id="smallBlind" value="5" min="0">
+                </label>
+                <label>
+                    Big Blind
+                    <input type="number" id="bigBlind" value="10" min="0">
+                </label>
+                <button id="startHandBtn" type="button">Start / Next Hand</button>
+                <button id="resetGameBtn" type="button" class="danger">Reset Game</button>
+            </div>
+        </section>
+
+        <section id="playersSection" class="card">
+            <h2>Players</h2>
+            <ul id="playersList" class="players-list"></ul>
+        </section>
+
+        <section id="actionsSection" class="card">
+            <h2>Actions</h2>
+            <p id="turnIndicator" class="turn-indicator">No active hand.</p>
+
+            <div class="action-buttons">
+                <button id="foldBtn" class="action fold">Fold</button>
+                <button id="checkBtn" class="action check">Check</button>
+                <button id="callBtn" class="action call">Call</button>
+                <button id="betRaiseBtn" class="action raise">Bet / Raise</button>
+                <input type="number" id="betAmount" placeholder="Amount" min="1">
+                <button id="allInBtn" class="action allin">All-In</button>
+            </div>
+        </section>
+
+        <section id="logSection" class="card">
+            <h2>Hand Log</h2>
+            <ul id="logList" class="log-list"></ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
